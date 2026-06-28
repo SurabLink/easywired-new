@@ -1,0 +1,95 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run rsync as a preview without changing files"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ github.ref_name || 'manual' }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      STRATO_HOST: ${{ secrets.STRATO_HOST }}
+      STRATO_USER: ${{ secrets.STRATO_USER }}
+      STRATO_SSH_KEY: ${{ secrets.STRATO_SSH_KEY }}
+      STRATO_PORT: ${{ secrets.STRATO_PORT || '22' }}
+      STRATO_TARGET_DIR: ${{ secrets.STRATO_TARGET_DIR || '/srv/easywired-new' }}
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate deploy settings
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for required in STRATO_HOST STRATO_USER STRATO_SSH_KEY; do
+            if [ -z "${!required:-}" ]; then
+              echo "Missing required GitHub Secret: $required"
+              exit 1
+            fi
+          done
+
+          if [ "$STRATO_TARGET_DIR" != "/srv/easywired-new" ]; then
+            echo "Refusing deploy: STRATO_TARGET_DIR must be /srv/easywired-new."
+            exit 1
+          fi
+
+          if ! [[ "$STRATO_PORT" =~ ^[0-9]+$ ]]; then
+            echo "Refusing deploy: STRATO_PORT must be numeric."
+            exit 1
+          fi
+
+          echo "Deploy target: ${STRATO_USER}@${STRATO_HOST}:${STRATO_TARGET_DIR}"
+          echo "Dry run: ${DRY_RUN}"
+
+      - name: Prepare SSH known_hosts
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$STRATO_SSH_KEY" > "$HOME/.ssh/id_rsa"
+          chmod 600 "$HOME/.ssh/id_rsa"
+
+          ssh-keyscan -T 10 -p "$STRATO_PORT" -H "$STRATO_HOST" > "$HOME/.ssh/known_hosts"
+          chmod 644 "$HOME/.ssh/known_hosts"
+
+      - name: Rsync deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rsync_args=(-az --delete --itemize-changes)
+          if [ "$DRY_RUN" = "true" ]; then
+            rsync_args+=(--dry-run)
+          fi
+
+          rsync "${rsync_args[@]}" \
+            --exclude='.github/' \
+            --exclude='.git*' \
+            --exclude='docs/' \
+            --exclude='README*' \
+            --exclude='.env*' \
+            --exclude='node_modules/' \
+            -e "ssh -p $STRATO_PORT -i $HOME/.ssh/id_rsa -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$HOME/.ssh/known_hosts" \
+            ./ "${STRATO_USER}@${STRATO_HOST}:${STRATO_TARGET_DIR}/"
