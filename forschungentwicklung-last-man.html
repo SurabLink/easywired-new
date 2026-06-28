@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="de_DE">
+	<head>
+		<title>Forschung&amp;Entwicklung: Last Man - EASYWIRED</title><meta property="og:site_name" content="EASYWIRED" />
+<meta property="og:title" content="Forschung&amp;Entwicklung: Last Man" />
+<meta property="og:description" content="Neue und zugleich verbesserte Methode für die Berechnung des letzten Users in einem Spiel. Die &quot;Last Man&quot; Einstellungen waren bisher immer relativ Buganfällig. Durch ein Gleichzeitigkeitsproblem,..." />
+<meta property="og:image" content="./uploads/1/2/4/2/124287907/logo-ew_52.gif" />
+<meta property="og:image" content="./uploads/1/2/4/2/124287907/published/737272545.png" />
+<meta property="og:image" content="./uploads/1/2/4/2/124287907/last-man_orig.gif" />
+<meta property="og:url" content="./forschungentwicklung-last-man.html" />
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="cdn-assets/cdn11.editmysite.com/css/sites.css" />
+<link rel="stylesheet" type="text/css" href="cdn-assets/cdn11.editmysite.com/css/old/fancybox.css" />
+<link rel="stylesheet" type="text/css" href="cdn-assets/cdn11.editmysite.com/css/social-icons.css" media="screen,projection" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css@1782116011.css" title="wsite-theme-css" />
+<link href='cdn-assets/cdn2.editmysite.com/fonts/Montserrat/font.css' rel='stylesheet' type='text/css' />
+
+<style type='text/css'>
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {font-weight:700 !important;}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+@media screen and (min-width: 767px) {.wsite-elements.wsite-not-footer:not(.wsite-header-elements) div.paragraph, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) p, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-block .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-description, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .wsite-form-field label, #wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {font-size:20px !important;}
+#wsite-content div.paragraph, #wsite-content p, #wsite-content .product-block .product-title, #wsite-content .product-description, #wsite-content .wsite-form-field label, #wsite-content .wsite-form-field label, .blog-sidebar div.paragraph, .blog-sidebar p, .blog-sidebar .wsite-form-field label, .blog-sidebar .wsite-form-field label {}
+.wsite-elements.wsite-footer div.paragraph, .wsite-elements.wsite-footer p, .wsite-elements.wsite-footer .product-block .product-title, .wsite-elements.wsite-footer .product-description, .wsite-elements.wsite-footer .wsite-form-field label, .wsite-elements.wsite-footer .wsite-form-field label{}
+.wsite-elements.wsite-not-footer:not(.wsite-header-elements) h2, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-long .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-large .product-title, .wsite-elements.wsite-not-footer:not(.wsite-header-elements) .product-small .product-title, #wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+#wsite-content h2, #wsite-content .product-long .product-title, #wsite-content .product-large .product-title, #wsite-content .product-small .product-title, .blog-sidebar h2 {}
+.wsite-elements.wsite-footer h2, .wsite-elements.wsite-footer .product-long .product-title, .wsite-elements.wsite-footer .product-large .product-title, .wsite-elements.wsite-footer .product-small .product-title{}
+#wsite-title {}
+.wsite-menu-default a {}
+.wsite-menu a {}
+.wsite-image div, .wsite-caption {}
+.galleryCaptionInnerText {}
+.fancybox-title {}
+.wslide-caption-text {}
+.wsite-phone {}
+.wsite-headline,.wsite-header-section .wsite-content-title {}
+.wsite-headline-paragraph,.wsite-header-section .paragraph {}
+.wsite-button-inner {}
+.wsite-not-footer blockquote {}
+.wsite-footer blockquote {}
+.blog-header h2 a {}
+#wsite-content h2.wsite-product-title {}
+.wsite-product .wsite-product-price a {}
+}</style>
+
+		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9487e9d3-097b-4490-a9e8-32cc51b2d88f" data-blockingmode="auto" type="text/javascript"></script><script src='files/templateArtifacts.js'></script>
+<script>
+var STATIC_BASE = '//cdn1.editmysite.com/';
+var ASSETS_BASE = 'cdn-assets/cdn11.editmysite.com/';
+var STYLE_PREFIX = 'wsite';
+</script>
+<script src='cdn-assets/cdn11.editmysite.com/js/jquery-1.8.3.min.js'></script>
+
+<script type="text/javascript" src="cdn-assets/cdn2.editmysite.com/js/lang/de_DE/stl.js"></script>
+<script src="cdn-assets/cdn11.editmysite.com/js/site/main.js"></script><script type="text/javascript">
+		function initCustomerAccountsModels() {
+					(function(){_W.setup_rpc({"url":"\/ajax\/api\/JsonRPC\/CustomerAccounts\/","actions":{"CustomerAccounts":[{"name":"login","len":2,"multiple":false,"standalone":false},{"name":"logout","len":0,"multiple":false,"standalone":false},{"name":"getSessionDetails","len":0,"multiple":false,"standalone":false},{"name":"getAccountDetails","len":0,"multiple":false,"standalone":false},{"name":"getOrders","len":0,"multiple":false,"standalone":false},{"name":"register","len":4,"multiple":false,"standalone":false},{"name":"emailExists","len":1,"multiple":false,"standalone":false},{"name":"passwordReset","len":1,"multiple":false,"standalone":false},{"name":"passwordUpdate","len":3,"multiple":false,"standalone":false},{"name":"validateSession","len":1,"multiple":false,"standalone":false}]},"namespace":"_W.CustomerAccounts.RPC"});
+_W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":"_W.CustomerAccounts.BackboneModelData","collection_namespace":"_W.CustomerAccounts.BackboneCollectionData","bootstrap_namespace":"_W.CustomerAccounts.BackboneBootstrap","models":{"CustomerAccounts":{"_class":"CustomerAccounts.Model.CustomerAccounts","defaults":null,"validation":null,"types":null,"idAttribute":null,"keydefs":null}},"collections":{"CustomerAccounts":{"_class":"CustomerAccounts.Collection.CustomerAccounts"}},"bootstrap":[]});
+})();
+		}
+		if(document.createEvent && document.addEventListener) {
+			var initEvt = document.createEvent('Event');
+			initEvt.initEvent('customerAccountsModelsInitialized', true, false);
+			document.dispatchEvent(initEvt);
+		} else if(document.documentElement.initCustomerAccountsModels === 0){
+			document.documentElement.initCustomerAccountsModels++
+		}
+		</script>
+		<script type="text/javascript"> _W = _W || {}; _W.securePrefix='www.easywired.de'; </script><script>_W = _W || {};
+			_W.customerLocale = "de";
+			_W.storeName = null;
+			_W.isCheckoutReskin = false;
+			_W.storeCountry = "DE";
+			_W.storeCurrency = "EUR";
+			_W.storeEuPrivacyPolicyUrl = "";
+			com_currentSite = "566137816592563923";
+			com_userID = "124287907";</script><script type="text/javascript">_W.configDomain = "www.weebly.com";</script><script>_W.relinquish && _W.relinquish()</script>
+<script type="text/javascript" src="cdn-assets/cdn2.editmysite.com/js/lang/de_DE/stl.js"></script><script> _W.themePlugins = [];</script><script type="text/javascript"> _W.recaptchaUrl = "https://www.google.com/recaptcha/api.js"; </script><script type="text/javascript"><!--
+	
+	var DISABLE_NAV_MORE = 1;
+	function initFlyouts(){
+		initPublishedFlyoutMenus(
+			[{"id":"471481021238466717","title":"Start","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"353481056182946901","title":"News","url":"news.html","target":"","nav_menu":false,"nonclickable":true},{"id":"610518997779451804","title":"Wireds Lernen","url":"wireds-lernen.html","target":"","nav_menu":false,"nonclickable":true},{"id":"291220463579520736","title":"Wired Szene","url":"wired-szene.html","target":"","nav_menu":false,"nonclickable":true},{"id":"710986301557406832","title":"Tipps & Tricks","url":"tipps--tricks.html","target":"","nav_menu":false,"nonclickable":true},{"id":"312351942173649279","title":"Teammitglieder","url":"teammitglieder.html","target":"","nav_menu":false,"nonclickable":false}],
+			"217663492976842203",
+			'',
+			'active',
+			false,
+			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
+			{}
+		)
+	}
+//-->
+</script>
+		
+		
+        <script>
+            (function(b,d,h,e,f,a,c){a=d.getElementsByTagName("script");c=!1;
+            var k=e.substring(e.lastIndexOf("/")+1);b.formIds=b.formIds?b.formIds:[];
+            for(var g=0;g<a.length;g++)-1<a[g].src.indexOf(k)&&(c=!0);b[f]&&(b.formIds=b.formIds.concat(b[f].form_ids));
+            b.formObject=f;b[f]=function(a){if(a.form_ids){
+                var c=b.formIds.concat(a.form_ids),d=[],e;for(e in c)c.hasOwnProperty(e)&&-1==d.indexOf(c[e])&&d.push(c[e]);
+                a.form_ids=d}b[f]=a};c||(a=d.createElement(h),c=d.getElementsByTagName(h)[0],a.async=!0,a.src=e,c.parentNode.insertBefore(a,
+                    c))})(window,document,'script', '//cdn3.editmysite.com/app/marketing/js/dist/lead-form.js','leadForm');
+            leadForm({ form_ids: ["17012a40-7055-4117-a9a7-ddd32341ff79"], preview: 0, asset_domain: 'cdn3.editmysite.com/app/marketing', data_domain: 'www.weebly.com/app/marketing' });
+        </script><script async src="https://static.zotabox.com/0/0/0057b80d09e0037e4abcc2993b6d7cda/widgets.js"></script><script async src="https://static.zotabox.com/0/0/0057b80d09e0037e4abcc2993b6d7cda/widgets.js"></script>
+	</head>
+	<body class="no-header-page  wsite-page-forschungentwicklung-last-man  wsite-theme-light"><div class="wrapper">
+    <div class="cento-header">
+      <div class="nav-wrap">
+        <div class="container">
+          <a class="hamburger" aria-label="Menu" href="forschungentwicklung-last-man.html#"><span></span></a>
+          <div class="logo"><span class="wsite-logo">
+
+	<a href="index.html">
+	
+	<span id="wsite-title">EASYWIRED</span>
+	
+	</a>
+
+</span></div>
+          <div class="nav desktop-nav"><div class="container"><ul class="wsite-menu-default">
+		<li id="pg471481021238466717" class="wsite-menu-item-wrap">
+			<a
+						href="index.html"
+				class="wsite-menu-item"
+				>
+				Start
+			</a>
+			
+		</li>
+		<li id="pg353481056182946901" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				News
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-315380647657528846"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="easywired.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			easyWIRED
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-888689312710469406"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="update-liste.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Update Liste
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-429543127465747085"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="interview1.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Interview
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-521577762849119362"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="community-fragen.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Community-Fragen
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-777508253923537700"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-forschung.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired-Forschung
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg610518997779451804" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				Wireds Lernen
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-611825001942073367"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-artikel.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired-Artikel
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-992216504488925810"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-tool.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired-Tool
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-274370708171663620"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="kurztutorials.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Kurztutorials
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-415275827948832770"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="videotutorials.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Videotutorials
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg291220463579520736" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				Wired Szene
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-427394895994961127"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-career.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired Career
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-564752378331256339"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-raumlume.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired R&auml;ume
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg710986301557406832" class="wsite-menu-item-wrap">
+			<a
+				class="wsite-menu-item"
+				>
+				Tipps & Tricks
+			</a>
+			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-983928021238416269"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="commands.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Commands
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-796108120282899390"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="bodenlayout-editor.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Bodenlayout Editor
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-983694450225847092"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="afk-leveln.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			AFK-Leveln
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-740098670410080861"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="sonstiges.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Sonstiges
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+		</li>
+		<li id="pg312351942173649279" class="wsite-menu-item-wrap">
+			<a
+						href="teammitglieder.html"
+				class="wsite-menu-item"
+				>
+				Teammitglieder
+			</a>
+			
+		</li>
+		
+</ul>
+</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-wrap">
+      <div id="wsite-content" class="wsite-elements wsite-not-footer">
+	<div class="wsite-section-wrap">
+	<div class="wsite-section wsite-body-section wsite-background-253" style="height: auto;" >
+		<div class="wsite-section-content">
+          <div class="container">
+			<div class="wsite-section-elements">
+				<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:6.8695652173913%; padding:0 15px;">
+					
+						
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="uploads/1/2/4/2/124287907/logo-ew_52.gif" alt="Bild" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:93.130434782609%; padding:0 15px;">
+					
+						
+
+<h2 class="wsite-content-title"><br />&#8203;Forschung&amp;Entwicklung</h2>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<h2 class="wsite-content-title"><br /><font size="6">&#8203;Last Man</font><br /><span><font color="#24678d" size="4">Entwickelt von: surab1996</font></span></h2>
+
+<div class="paragraph"><strong>Neue und zugleich verbesserte Methode f&uuml;r die Berechnung des letzten Users in einem Spiel. <br /></strong>Die "Last Man" Einstellungen waren bisher immer relativ Buganf&auml;llig. Durch ein Gleichzeitigkeitsproblem, welches manchmal Effekte doppelt ausf&uuml;hrt, entstanden falsche Berechnungen. So wurden Leuchtb&auml;lle zweifach bewegt oder Farbfliesen doppelt umgeschalten. Um das zu verhindern wird der Weg der Leuchtb&auml;lle verk&uuml;rzt, sodass sie sich immer H&ouml;chstens ein Feld fort bewegen k&ouml;nnen.</div>
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="uploads/1/2/4/2/124287907/published/737272545.png" alt="Bild" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%">Vollständiger Aufbau eines "Last Man" Systems</div>
+</div></div>
+
+<div class="paragraph"><br /><span>&#8203;Das Prinzip ist sehr spektakul&auml;r. Befinden sich 2 oder mehr User im Spielfeld, bewegen sich die Leuchtb&auml;lle parallel zueinander fort. Ist jedoch nur noch einer &uuml;brig, &auml;ndert sich die Bewegung der Leuchtb&auml;lle fast blitzartig, nachdem der 2. User verschwunden war, dann asynchron fort. Die Anzahl der diagonalen-Positionen werden gez&auml;hlt. Kommt eine signifikante Anzahl zusammen, wird dies als "letzter User" detektiert. Es k&ouml;nnen aber immer noch Fehler auftreten. Unvorhergesehene Einfl&uuml;sse, die nach einer ungewissen Zeit auftreten k&ouml;nnen, w&uuml;rden die Leuchtb&auml;lle in falsche Positionen bringen, die dann trotzdem dazugez&auml;hlt werden w&uuml;rden. Daher wird ein Zeitlimit von jeweils 2 Sekunden gesetzt.</span><br /><br /><font color="#2a2a2a">Jedes Mal, wenn der Counter eine Zahl dazu addiert, muss die n&auml;chste Zahl innerhalb von 2 Sekunden dazu addiert werden oder anders gesagt, wenn die diagonalen-Positionen zu selten auftreten, wird der Counter zur&uuml;ckgesetzt und das Z&auml;hlen beginnt von neu. Trotzdem ist diese Methode sehr schnell. Die Erkennung von einem User dauert nur 2,5 Sekunden. Es w&auml;re nicht anzuzweifeln, dass diese Dauer sogar noch zu &uuml;bertreffen ist. Nach aktueller Forschung w&uuml;rde das aber die Genauigkeit und Pr&auml;zision verschlechtern.<br /><br />&#8203;Das Last Man System k&ouml;nnte neue M&ouml;glichkeiten f&uuml;r vollautomatische Games schaffen, die bisher weniger oder nur schwierig zu realisieren waren. Bekannte Games wie DTTF oder Lass dich nicht fangen k&ouml;nnen damit optimiert werden. Au&szlig;erdem werden Wired-Kosten gespart, denn in diesem System muss nicht f&uuml;r jede 1 mal 1 Bodenfl&auml;che etwas eingestellt werden.</font><br />&#8203;</div>
+
+<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<a>
+<img src="uploads/1/2/4/2/124287907/last-man_orig.gif" alt="Bild" style="width:auto;max-width:100%" />
+</a>
+<div style="display:block;font-size:90%">Last Man System im Einsatz</div>
+</div></div>
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<h2 class="wsite-content-title"><br /><font color="#24678d">&#8203;Einstellungs-Info</font></h2>
+
+<div class="paragraph"><strong>Richtung &auml;ndern statt Angriff: </strong>Kollision muss durch den Richtung &auml;ndern Effekt erzeugt werden. Der Angriff Effekt ist n&auml;mlich davon abh&auml;ngig, wo ein User steht. Wenn z. B. 2 User Diagonal nebeneinander stehen, muss sich ein Freeze Boden entscheiden mit welchen User er kollidieren soll. Bei bestimmten Stellen kann es also leider passieren, dass ein User keine Kollision abbekommt. Um dies zu vermeiden legt man f&uuml;r jeden Boden eine "Kollisionsrichtung" fest.<br /><br /><strong>Gleichzeitiges Kollidieren:&nbsp;</strong><span>Wenn 2 User zur gleichen Zeit kollidieren, w&uuml;rde bei einem normalen Kollisions-Stapel nur ein User von beiden ausl&ouml;sen. Wenn aber im Stapel 2 mal Kollision eingebaut wird, werden beide User fast zeitgleich aufgenommen. Aber ein Wired Effekt alleine&nbsp;kann im Normalfall&nbsp;</span><span>nur einmal&nbsp;</span><span>pro 0,5 Sekunden ausgel&ouml;st werden, daher werden zwei Effekte eingebaut und das Extra Wired "unbenutzter Effekt". Das Extra Wired sorgt daf&uuml;r, dass jeder Ausl&ouml;ser einen freien (unbenutzten) Effekt ausl&ouml;sen kann und damit erm&ouml;glicht dieser, dass&nbsp;bei einer gleichzeitigen Kollision auch 2 Effekte gleichzeitig ausgel&ouml;st werden. Mit gleichzeitig ist nat&uuml;rlich keine absolute Gleichzeitigkeit gemeint, sondern Dinge, die in einem Zeitbereich von unter 0,5 Sekunden passieren.<br /><br /><strong>Doppelte Absicherung</strong>: Im GIF oben ist in der Einstellung ein doppelter Schutz eingebaut. Eigentlich w&uuml;rde dies auch mit einem Schutz allein schon gut funktionieren, aber die Vergangenheit hat gezeigt, wie Buganf&auml;llig Last Man Einstellungen manchmal sein k&ouml;nnen, daher wurde eine zus&auml;tzliche Sicherung installiert. Es wurden verschiedene Tests durchgef&uuml;hrt: Nur die 1. Absicherung, nur die 2. Absicherung und beide Absicherungen zusammen. In keinem Fall konnte eine Fehldetektion festgestellt werden. Wichtig ist nur, dass mindestens eine von beiden drin ist. Die Absicherung bezieht sich darauf, dass der wei&szlig;e Nr.-Block auf 0 gesetzt wird, wenn ein Fehler auftreten w&uuml;rde.</span></div>
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+<div class="wsite-youtube" style="margin-bottom:10px;margin-top:10px;"><div class="wsite-youtube-wrapper wsite-youtube-size-xl wsite-youtube-align-center">
+<div class="wsite-youtube-container">
+
+<iframe src="https://www.youtube.com/embed/AfTu6MNeNO4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+</div>
+</div></div>
+			</div>
+		</div>
+      </div>
+
+	</div>
+</div>
+
+</div>
+
+    </div>
+
+    <div class="footer-wrap">
+        <div class="footer"><div class='wsite-elements wsite-footer'>
+<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
+<hr class="styled-hr" style="width:100%;"></hr>
+<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+<div class="wsite-spacer" style="height:212px;"></div>
+
+<div style="text-align:left;"><div style="height: 50px; overflow: hidden;"></div>
+<a class="wsite-button wsite-button-small wsite-button-normal" href="impressum-und-datenschutz.html" target="_blank">
+<span class="wsite-button-inner">Impressum und Datenschutz</span>
+</a>
+<div style="height: 10px; overflow: hidden;"></div></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div>
+
+<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="wsite-multicol-table">
+		<tbody class="wsite-multicol-tbody">
+			<tr class="wsite-multicol-tr">
+				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+
+					
+				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
+					
+						
+
+<div class="wsite-spacer" style="height:50px;"></div>
+
+
+					
+				</td>			</tr>
+		</tbody>
+	</table>
+</div></div></div></div></div>
+    </div><!-- end footer-wrap -->
+  </div><!-- /.wrapper -->
+
+  <div id="navMobile" class="nav mobile-nav">
+    <a class="hamburger" aria-label="Menu" href="forschungentwicklung-last-man.html#"><span></span></a>
+    <ul class="wsite-menu-default">
+    		<li id="pg471481021238466717" class="wsite-menu-item-wrap">
+    			<a
+    						href="index.html"
+    				class="wsite-menu-item"
+    				>
+    				Start
+    			</a>
+    			
+    		</li>
+    		<li id="pg353481056182946901" class="wsite-menu-item-wrap">
+    			<a
+    				class="wsite-menu-item"
+    				>
+    				News
+    			</a>
+    			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-315380647657528846"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="easywired.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			easyWIRED
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-888689312710469406"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="update-liste.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Update Liste
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-429543127465747085"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="interview1.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Interview
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-521577762849119362"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="community-fragen.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Community-Fragen
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-777508253923537700"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-forschung.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired-Forschung
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+    		</li>
+    		<li id="pg610518997779451804" class="wsite-menu-item-wrap">
+    			<a
+    				class="wsite-menu-item"
+    				>
+    				Wireds Lernen
+    			</a>
+    			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-611825001942073367"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-artikel.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired-Artikel
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-992216504488925810"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-tool.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired-Tool
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-274370708171663620"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="kurztutorials.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Kurztutorials
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-415275827948832770"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="videotutorials.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Videotutorials
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+    		</li>
+    		<li id="pg291220463579520736" class="wsite-menu-item-wrap">
+    			<a
+    				class="wsite-menu-item"
+    				>
+    				Wired Szene
+    			</a>
+    			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-427394895994961127"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-career.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired Career
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-564752378331256339"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="wired-raumlume.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Wired R&auml;ume
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+    		</li>
+    		<li id="pg710986301557406832" class="wsite-menu-item-wrap">
+    			<a
+    				class="wsite-menu-item"
+    				>
+    				Tipps & Tricks
+    			</a>
+    			<div class="wsite-menu-wrap" style="display:none">
+	<ul class="wsite-menu">
+		<li id="wsite-nav-983928021238416269"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="commands.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Commands
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-796108120282899390"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="bodenlayout-editor.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Bodenlayout Editor
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-983694450225847092"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="afk-leveln.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			AFK-Leveln
+		</span>
+	</a>
+	
+</li>
+<li id="wsite-nav-740098670410080861"
+	class="wsite-menu-subitem-wrap "
+	>
+	<a
+				href="sonstiges.html"
+		class="wsite-menu-subitem"
+		>
+		<span class="wsite-menu-title">
+			Sonstiges
+		</span>
+	</a>
+	
+</li>
+
+	</ul>
+</div>
+
+    		</li>
+    		<li id="pg312351942173649279" class="wsite-menu-item-wrap">
+    			<a
+    						href="teammitglieder.html"
+    				class="wsite-menu-item"
+    				>
+    				Teammitglieder
+    			</a>
+    			
+    		</li>
+    		
+    </ul>
+  </div>
+
+  <script type="text/javascript" src="files/theme/plugins.js"></script>
+  <script type="text/javascript" src="files/theme/custom.js"></script>
+    <div id="customer-accounts-app"></div>
+    <script src="cdn-assets/cdn2.editmysite.com/js/site/main-customer-accounts-site.js"></script>
+
+		<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-7870337-1']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		// NOTE: keep the [1] if you replace this code. Otherwise cookie banner scripts won't be first on the page
+		var s = document.getElementsByTagName('script')[1]; s.parentNode.insertBefore(ga, s);
+	})();
+
+	_W.Analytics = _W.Analytics || {'trackers': {}};
+	_W.Analytics.trackers.wGA = '_gaq';
+</script>
+
+<script type="text/javascript" async=1>
+	// NOTE: keep the getElementsByTagName(o)**[1]** if you replace this code. Otherwise cookie banner scripts won't be first on the page
+	;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+			p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+			};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[1];n.async=1;
+			n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,'script','cdn-assets/cdn2.editmysite.com/js/wsnbn/snowday262.js','snowday'));
+
+	var r = [99, 104, 101, 99, 107, 111, 117, 116, 46, 40, 119, 101, 101, 98, 108, 121, 124, 101, 100, 105, 116, 109, 121, 115, 105, 116, 101, 41, 46, 99, 111, 109];
+	var snPlObR = function(arr) {
+		var s = '';
+		for (var i = 0 ; i < arr.length ; i++){
+			s = s + String.fromCharCode(arr[i]);
+		}
+		return s;
+	};
+	var s = snPlObR(r);
+
+	var regEx = new RegExp(s);
+
+	_W.Analytics = _W.Analytics || {'trackers': {}};
+	_W.Analytics.trackers.wSP = 'snowday';
+	_W.Analytics.user_id = '124287907';
+	_W.Analytics.site_id = '566137816592563923';
+
+
+	(function(app_id, ec_hostname, discover_root_domain) {
+		var track = window[_W.Analytics.trackers.wSP];
+		if (!track) return;
+		track('newTracker', app_id, ec_hostname, {
+			appId: app_id,
+			post: true,
+			platform: 'web',
+			discoverRootDomain: discover_root_domain,
+			cookieName: '_snow_',
+			contexts: {
+				webPage: true,
+				performanceTiming: true,
+				gaCookies: true
+			},
+			crossDomainLinker: function (linkElement) {
+				return regEx.test(linkElement.href);
+			},
+			respectDoNotTrack: true
+		});
+		track('trackPageView', _W.Analytics.user_id+':'+_W.Analytics.site_id, _W.Analytics.spContexts);
+		track('crossDomainLinker', function (linkElement) {
+			return regEx.test(linkElement.href);
+		});
+	})(
+		'_wn',
+		'ec.editmysite.com',
+		true
+	);
+</script>
+
+
+
+
+
+<script>
+	(function(jQuery) {
+		try {
+			if (jQuery) {
+				jQuery('div.blog-social div.fb-like').attr('class', 'blog-social-item blog-fb-like');
+				var $commentFrame = jQuery('#commentArea iframe');
+				if ($commentFrame.length > 0) {
+					var frameHeight = jQuery($commentFrame[0].contentWindow.document).height() + 50;
+					$commentFrame.css('min-height', frameHeight + 'px');
+				}
+				if (jQuery('.product-button').length > 0){
+					jQuery(document).ready(function(){
+						jQuery('.product-button').parent().each(function(index, product){
+							if(jQuery(product).attr('target') == 'paypal'){
+								if (!jQuery(product).find('> [name="bn"]').length){
+									jQuery('<input>').attr({
+										type: 'hidden',
+										name: 'bn',
+										value: 'DragAndDropBuil_SP_EC'
+									}).appendTo(product);
+								}
+							}
+						});
+					});
+				}
+			}
+			else {
+				// Prototype
+				$$('div.blog-social div.fb-like').each(function(div) {
+					div.className = 'blog-social-item blog-fb-like';
+				});
+				$$('#commentArea iframe').each(function(iframe) {
+					iframe.style.minHeight = '410px';
+				});
+			}
+		}
+		catch(ex) {}
+	})(window._W && _W.jQuery);
+</script>
+
+<script>
+	window._W.isEUUser = false;
+	window._W.showCookieToAll = "all";
+</script>
+
+<script>
+	(function(jQuery) {
+		try {
+			function forceShowCcLinks() {
+				var ccLinks = document.querySelector('.cc_links');
+				if (!ccLinks) {
+					return;
+				}
+
+				var ccLinksVisible = jQuery(ccLinks).is(':visible');
+				if (ccLinksVisible) {
+					return;
+				}
+
+
+				ccLinks.style.display = 'block';
+
+				var ccParent = ccLinks.parentElement;
+
+				var ccParentVisible = jQuery(ccParent).is(':visible');
+				if (ccParentVisible) {
+					return;
+				}
+
+				ccParent.style.display = 'block';
+
+				var ccGrandparent = ccParent.parentElement;
+				var ccGrandparentVisible = jQuery(ccGrandparent).is(':visible');
+				if (ccGrandparentVisible) {
+					return;
+				}
+				ccGrandparent.style.display = 'block';
+
+			}
+
+			function forceShowCcLinksForever() {
+				var tenSeconds = 10000;
+				forceShowCcLinks();
+				setTimeout(forceShowCcLinksForever, tenSeconds);
+			}
+
+			jQuery(document).ready(forceShowCcLinksForever);
+		}
+		catch(ex) {}
+	})(window._W && _W.jQuery);
+</script>
+
+
+	</body>
+</html>
