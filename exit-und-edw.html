@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="de_DE">
 	<head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
+
 		<title>Exit und EDW - EASYWIRED</title><meta property="og:site_name" content="EASYWIRED" />
 <meta property="og:title" content="Exit und EDW" />
 <meta property="og:description" content="Kurzes Wired Tutorial über Exit und EDW." />
@@ -75,7 +80,7 @@
 .wsite-product .wsite-product-price a {}
 }</style>
 
-		<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9487e9d3-097b-4490-a9e8-32cc51b2d88f" data-blockingmode="auto" type="text/javascript"></script><script src='files/templateArtifacts.js'></script>
+		<script src='files/templateArtifacts.js'></script>
 <script>
 var STATIC_BASE = '//cdn1.editmysite.com/';
 var ASSETS_BASE = 'cdn-assets/cdn11.editmysite.com/';
@@ -125,17 +130,9 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 </script>
 		
 		
-        <script>
-            (function(b,d,h,e,f,a,c){a=d.getElementsByTagName("script");c=!1;
-            var k=e.substring(e.lastIndexOf("/")+1);b.formIds=b.formIds?b.formIds:[];
-            for(var g=0;g<a.length;g++)-1<a[g].src.indexOf(k)&&(c=!0);b[f]&&(b.formIds=b.formIds.concat(b[f].form_ids));
-            b.formObject=f;b[f]=function(a){if(a.form_ids){
-                var c=b.formIds.concat(a.form_ids),d=[],e;for(e in c)c.hasOwnProperty(e)&&-1==d.indexOf(c[e])&&d.push(c[e]);
-                a.form_ids=d}b[f]=a};c||(a=d.createElement(h),c=d.getElementsByTagName(h)[0],a.async=!0,a.src=e,c.parentNode.insertBefore(a,
-                    c))})(window,document,'script', '//cdn3.editmysite.com/app/marketing/js/dist/lead-form.js','leadForm');
-            leadForm({ form_ids: ["17012a40-7055-4117-a9a7-ddd32341ff79"], preview: 0, asset_domain: 'cdn3.editmysite.com/app/marketing', data_domain: 'www.weebly.com/app/marketing' });
-        </script><script async src="https://static.zotabox.com/0/0/0057b80d09e0037e4abcc2993b6d7cda/widgets.js"></script><script async src="https://static.zotabox.com/0/0/0057b80d09e0037e4abcc2993b6d7cda/widgets.js"></script>
-	</head>
+        
+	<link rel="stylesheet" href="assets/privacy-notice.css">
+</head>
 	<body class="no-header-page  wsite-page-exit-und-edw  wsite-theme-light"><div class="wrapper">
     <div class="cento-header">
       <div class="nav-wrap">
@@ -604,139 +601,9 @@ _W.setup_model_rpc({"rpc_namespace":"_W.CustomerAccounts.RPC","model_namespace":
 }
 
 </style><div id="element-5542d565-0f67-4fda-8e28-3934015b2f62" data-platform-element-id="758242516272010500-3.0.0" class="platform-element-contents">
-	<iframe src="https://comments.smilingoat.com/widget-weebly?user_id=124287907&site_id=566137816592563923&element_id=5542d565-0f67-4fda-8e28-3934015b2f62" scrolling="no" class="comments comments-5542d565-0f67-4fda-8e28-3934015b2f62""></iframe>
+	<div class="comments-placeholder" style="padding:14px;border:1px solid #ddd;background:#f7f7f7;color:#555;font-size:13px;border-radius:4px;margin:10px 0;">Kommentare wurden im Zuge der Migration entfernt. Diskussion findet inzwischen im <a href="https://discord.gg/habbowired" target="_blank" rel="noopener noreferrer">Discord der easyWIRED-Community</a> statt.</div>
 </div>
-<div style="clear:both;"></div><script type="text/javascript" class="element-script">function setupElement429067573613913477() {
-	var requireFunc = window.platformElementRequire || window.require;
-
-	// Relies on a global require, specific to platform elements
-	requireFunc([
-		'w-global',
-		'underscore',
-		'jquery',
-		'backbone',
-		'util/platform/elements/PlatformElement',
-		'util/platform/elements/PlatformElementSettings'
-	], function(
-		_W,
-		_,
-		$,
-		Backbone,
-		PlatformElement,
-		PlatformElementSettings
-	) {
-		var dependencies = null || [];
-		var platform_element_id = "758242516272010500-3.0.0";
-
-		if (typeof _W.loadedPlatformDependencies === 'undefined') {
-			_W.loadedPlatformDependencies = [];
-		}
-
-		if (typeof _W.platformElements === 'undefined') {
-			_W.platformElements = [];
-		}
-
-		if (typeof _W.platformElements[platform_element_id] === 'undefined') {
-			_W.platformElements[platform_element_id] = {};
-			_W.platformElements[platform_element_id].deferredObject = new $.Deferred();
-			_W.platformElements[platform_element_id].deferredPromise = _W.platformElements[platform_element_id].deferredObject.promise();
-		}
-
-		if(_.intersection(_W.loadedPlatformDependencies, dependencies).length !== dependencies.length){
-			_.reduce(dependencies, function(promise, nextScript){
-				_W.loadedPlatformDependencies.push(nextScript);
-				return promise.then(function(){
-					return $.getScript(nextScript);
-				});
-			}, $().promise()).then(function(){
-				_W.platformElements[platform_element_id].deferredObject.resolve();
-			});
-		}
-
-		if (dependencies.length === 0){
-			_W.platformElements[platform_element_id].deferredObject.resolve();
-		}
-
-		_W.platformElements[platform_element_id].deferredPromise.done(function(){
-			var _ElementDefinition = /**
- * This is required for element rendering to be possible
- * @type {PlatformElement}
- */
-(
-  function () {
-    var Comments = PlatformElement.extend({
-      initialize: function () {
-        var element_id = this.element_id;
-        var comments = this.$el.find('.comments-' + this.element_id);
-        window.addEventListener('message', function (event) {
-          if (event.origin === 'https://comments.smilingoat.com') {
-            try {
-              var obj = JSON.parse(event.data);
-              if (obj.element_id && obj.element_id === element_id && obj.height) {
-                comments.height(obj.height);
-              }
-            } catch (e) {
-              console.log(e.message);
-            }
-          }
-        });
-      },
-    });
-    return Comments;
-  }
-)();
-;
-
-			if (typeof _ElementDefinition == 'undefined' || typeof _ElementDefinition == 'null') {
-				var _ElementDefinition = PlatformElement.extend({});
-			}
-
-			var _Element = _ElementDefinition.extend({
-				initialize: function() {
-					// we still want to call the initialize function defined by the developer
-					// however, we don't want to call it until placeholders have been replaced
-					this.placeholderInterval = setInterval(function() {
-						// so use setInterval to check for placeholders.
-						if (this.$('.platform-element-child-placeholder').length == 0) {
-							clearInterval(this.placeholderInterval);
-							this.constructor.__super__.initialize.apply(this);
-						}
-					}.bind(this), 100);
-				}
-			});
-
-			_Element.prototype.settings = new PlatformElementSettings([]);
-			_Element.prototype.settings.page_element_id = "429067573613913477";
-
-			_Element.prototype.element_id = "5542d565-0f67-4fda-8e28-3934015b2f62";
-			_Element.prototype.user_id = "124287907";
-			_Element.prototype.site_id = "566137816592563923";
-			_Element.prototype.assets_path = "//marketplace.editmysite.com/uploads/b/marketplace-elements-758242516272010500-3.0.0/assets/";
-			new _Element({
-				el: '#element-5542d565-0f67-4fda-8e28-3934015b2f62'
-			});
-		});
-	});
-
-}
-
-if (typeof document.documentElement.appReady == 'undefined') {
-	document.documentElement.appReady = 0;
-}
-
-if (document.documentElement.appReady || (window.inEditor && window.inEditor())) {
-	setupElement429067573613913477();
-} else if (document.createEvent && document.addEventListener) {
-	document.addEventListener('appReady', setupElement429067573613913477, false);
-} else {
-	document.documentElement.attachEvent('onpropertychange', function(event){
-		if (event.propertyName == 'appReady') {
-			setupElement429067573613913477();
-		}
-	});
-}
-
-</script></div></div>
+<div style="clear:both;"></div></div></div>
 			</div>
 		</div>
       </div>
@@ -767,7 +634,7 @@ if (document.documentElement.appReady || (window.inEditor && window.inEditor()))
 <div class="wsite-spacer" style="height:212px;"></div>
 
 <div style="text-align:left;"><div style="height: 50px; overflow: hidden;"></div>
-<a class="wsite-button wsite-button-small wsite-button-normal" href="impressum-und-datenschutz.html" target="_blank">
+<a class="wsite-button wsite-button-small wsite-button-normal" href="impressum-und-datenschutz.html" target="_blank" rel="noopener noreferrer">
 <span class="wsite-button-inner">Impressum und Datenschutz</span>
 </a>
 <div style="height: 10px; overflow: hidden;"></div></div>
@@ -1260,5 +1127,6 @@ if (document.documentElement.appReady || (window.inEditor && window.inEditor()))
 </script>
 
 
-	</body>
+	<script src="assets/privacy-notice.js" defer></script>
+</body>
 </html>

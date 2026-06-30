@@ -1,0 +1,149 @@
+/* easyWIRED Privacy Notice Banner
+ * Reiner Informations-Hinweis nach Art. 13 DSGVO.
+ * KEIN Cookie-Consent — die Seite setzt weder Cookies noch verarbeitet sie
+ * personenbezogene Daten jenseits der unvermeidbaren Server-Logfiles.
+ * Das einzige im Banner verwendete Speicher-Flag (localStorage:ew_privacy_ack)
+ * ist nach § 25 Abs. 2 Nr. 2 TDDDG einwilligungsfrei.
+ */
+.ew-privacy-notice {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: none;
+  max-width: 880px;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #2b2b2b;
+  border: 2px solid #a85f2e;
+  border-radius: 12px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.18);
+  padding: 18px 56px 18px 22px;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  animation: ewPrivacySlideUp 360ms ease-out;
+}
+
+.ew-privacy-notice[data-visible="true"] {
+  display: block;
+}
+
+.ew-privacy-notice__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #a85f2e;
+  margin: 0 0 6px;
+  letter-spacing: 0.2px;
+}
+
+.ew-privacy-notice__title::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23a85f2e'><path d='M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3zm0 5a2 2 0 110 4 2 2 0 010-4zm0 5.5c1.7 0 5 0.9 5 2.5v2H7v-2c0-1.6 3.3-2.5 5-2.5z'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.ew-privacy-notice__body {
+  margin: 0;
+  color: #444;
+}
+
+.ew-privacy-notice__body a {
+  color: #a85f2e;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.ew-privacy-notice__body a:hover {
+  color: #8a4d24;
+}
+
+.ew-privacy-notice__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: #f4ece6;
+  color: #a85f2e;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ew-privacy-notice__close:hover,
+.ew-privacy-notice__close:focus-visible {
+  background: #a85f2e;
+  color: #ffffff;
+  outline: none;
+  transform: rotate(90deg);
+}
+
+@keyframes ewPrivacySlideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .ew-privacy-notice {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 16px 48px 16px 16px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  .ew-privacy-notice__title {
+    font-size: 14px;
+  }
+  .ew-privacy-notice__close {
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .ew-privacy-notice {
+    background: #1f1b18;
+    color: #f0e9e3;
+    border-color: #d97a3d;
+  }
+  .ew-privacy-notice__title {
+    color: #f3a35e;
+  }
+  .ew-privacy-notice__body {
+    color: #d9d2cc;
+  }
+  .ew-privacy-notice__close {
+    background: #322924;
+    color: #f3a35e;
+  }
+  .ew-privacy-notice__close:hover {
+    background: #d97a3d;
+    color: #1f1b18;
+  }
+}

@@ -1,51 +1,97 @@
 # easywired.de — Statische Spiegelung
 
-Dieses Repository enthält eine vollständige, selbstgehostete Spiegelung der ehemaligen Weebly-Website [easywired.de](https://www.easywired.de). Die Seite läuft komplett ohne Weebly: alle benötigten Assets (HTML, CSS, JavaScript, Bilder, GIFs, Schriftarten, Favicons) werden lokal aus dem Repository ausgeliefert.
+Selbstgehostete, statische 1:1-Spiegelung der ehemaligen Weebly-Website [easywired.de](https://www.easywired.de) durch **Surab Link**.  
+Die Seite läuft komplett ohne Weebly, ohne Backend, ohne Datenbank und ohne externe Tracker.
 
-## Inhalt
+---
 
-- Statische HTML-Seiten direkt im Repository-Root, identisch zur Originalstruktur (`index.html`, `news.html`, `wireds-lernen.html`, …)
-- `files/` — Theme-Assets (CSS, JS, Schriftarten) aus dem ursprünglichen Weebly-Theme
-- `uploads/` — Vom Autor hochgeladene Bilder/GIFs der Originalseite
-- `cdn-assets/cdn11.editmysite.com/` und `cdn-assets/cdn2.editmysite.com/` — Lokale Kopien aller von den Weebly-CDNs referenzierten Ressourcen (CSS, JS, Schriftarten, Sprites). Alle Pfade in den HTML- und CSS-Dateien wurden auf diese lokalen Kopien umgeschrieben.
-- `cdn-cgi/` — Originale Cloudflare-Beacon-Stubs (harmlos, ohne Funktion)
-- `docs/deploy-ssh.md` — Deployment-Dokumentation (wird nicht zum Server synchronisiert)
-- `.github/workflows/deploy.yml` — GitHub-Actions-Workflow für Rsync-Deployment auf den STRATO-VPS
+## Schnellübersicht
 
-## Wichtige Änderungen gegenüber dem Original
+| Aspekt | Wert |
+| --- | --- |
+| Charakter | Privates, nicht-kommerzielles Habbo-Fanprojekt |
+| Stack | Statische HTML-Dateien (183 Seiten), CSS, JS — direkt aus `/srv/easywired-new` |
+| Hosting | STRATO VPS (Ubuntu 22.04, nginx) |
+| Deployment | GitHub Actions → rsync via SSH on push to `master`/`main` |
+| Cookies / Tracking | **Keine** — nur Server-Logs (max. 7 Tage) |
+| Security-Audit | [`SECURITY_AUDIT.md`](SECURITY_AUDIT.md) |
+| Legal-Audit | [`LEGAL_AUDIT.md`](LEGAL_AUDIT.md) |
+| nginx-Config | [`docs/nginx-security.conf`](docs/nginx-security.conf) |
 
-1. **Kontaktseite entfernt:** Die Seite `kontakt.html` wurde nicht migriert. Alle internen Links auf `kontakt.html` (inkl. Menüeinträge in `initPublishedFlyoutMenus`) wurden aus allen Seiten entfernt.
-2. **Externe Weebly-CDNs lokalisiert:** Sämtliche Referenzen auf `cdn11.editmysite.com` und `cdn2.editmysite.com` wurden auf den lokalen Pfad `./cdn-assets/...` umgeschrieben.
-3. **Cache-Buster entfernt:** Datei-Suffixe wie `@1782116011` bzw. `?1782116011` wurden sowohl aus den Dateinamen als auch aus allen HTML/CSS/JS-Referenzen entfernt, damit Webserver wie nginx korrekte MIME-Typen liefern (besonders relevant für Schriftarten).
-4. **Absolute Easywired-URLs:** Verbliebene absolute `https://www.easywired.de/`-Links wurden in relative Pfade umgeschrieben.
+---
 
-Externe Inhalts-Links (Discord, Wikipedia, ChatGPT, smilingoat-Kommentare, Cookiebot-Banner, Habview u. a.) bleiben unverändert. Sie verweisen weiterhin auf die Original-Drittquellen.
+## Repository-Struktur
 
-## Lokales Vorschauen
-
-```bash
-cd /pfad/zum/repo
-python3 -m http.server 8000
-# Öffne http://localhost:8000/index.html
+```
+/
+├── *.html                       # 183 statische Seiten der Originalsite
+├── files/                       # Theme-Assets (CSS, JS, Schriftarten)
+├── uploads/                     # Vom Autor hochgeladene Bilder/GIFs (≈127 MB)
+├── cdn-assets/                  # Lokal gespiegelte Weebly-CDN-Ressourcen
+│   ├── cdn11.editmysite.com/
+│   └── cdn2.editmysite.com/
+├── media/weebly/                # Restliche Weebly-CDN-Mediendateien
+│                                #   (Videos + Poster-Bilder)
+├── assets/
+│   ├── privacy-notice.css       # Hinweisbalken-Styles
+│   └── privacy-notice.js        # Vanilla-JS, keine Tracker, keine Deps
+├── cdn-cgi/                     # Cloudflare-Email-Decoder (lokaler Stub)
+├── 404.html                     # Gehärtete Fehlerseite
+├── robots.txt
+├── .well-known/security.txt     # RFC 9116 Disclosure-Kontakt
+├── SECURITY_AUDIT.md            # Sicherheits-Audit-Bericht
+├── LEGAL_AUDIT.md               # DSGVO/DDG-Audit-Bericht
+├── README.md                    # diese Datei
+├── docs/
+│   ├── deploy-ssh.md            # Doku zum Deploy-Workflow
+│   └── nginx-security.conf      # Empfohlene nginx-Konfiguration
+└── .github/workflows/deploy.yml # CI: rsync auf STRATO
 ```
 
-## Deployment auf STRATO
+---
 
-Bei jedem Push auf `main` oder `master` synchronisiert der GitHub-Actions-Workflow das gesamte Repository (außer `.github/`, `.git*`, `docs/`, `README*`, `.env*`, `node_modules/`) per `rsync` nach `/srv/easywired-new/` auf den STRATO-VPS. Die Secrets sind im Repository hinterlegt:
+## Wichtige Änderungen gegenüber der Weebly-Originalsite
+
+1. **Kontaktseite entfernt** – `kontakt.html` wurde nicht migriert; sämtliche internen Links und Menüeinträge auf diese Seite sind raus.
+2. **Externe Weebly-CDNs lokalisiert** – Alle `cdn11.editmysite.com` und `cdn2.editmysite.com`-Referenzen wurden auf lokale Pfade umgeschrieben (`cdn-assets/...`).
+3. **Restliche Weebly-Medien lokalisiert** – Acht eingebettete Videos (vorher von `weebly.com/weebly/apps/generateVideo.php` per `<iframe>`+`document.write` nachgeladen) wurden durch native HTML5 `<video controls>`-Player ersetzt; alle MP4s liegen unter `media/weebly/`.
+4. **Externe Tracker entfernt** – Zotabox, Cookiebot, Smilingoat-Comments und das Weebly-Lead-Form (gesamt 736 Tags auf 183 Seiten) wurden ausgebaut.
+5. **Security-Header per Meta-Tag** – Content-Security-Policy, X-Content-Type-Options, Referrer-Policy und Permissions-Policy sind in jedem `<head>` injiziert; zusätzliche HTTP-Header werden über die mitgelieferte nginx-Konfig gesetzt.
+6. **`rel="noopener noreferrer"`** auf allen 316 `target="_blank"`-Links – Reverse-Tabnabbing-Schutz.
+7. **Impressum & Datenschutz neu** – DDG/MStV/DSGVO/TDDDG-konform, ohne unwahre Cookie- oder Kontaktformular-Erwähnungen.
+8. **Eigener Datenschutz-Hinweisbalken** – Vanilla-JS, design-konsistent, informatorisch (kein Consent-Banner-Theater).
+9. **Cache-Buster-Suffixe entfernt** – Datei-/Referenz-Suffixe wie `@1782116011` raus, damit nginx-MIME-Detection sauber arbeitet (besonders für WOFF2-Schriftarten).
+
+---
+
+## Lokale Vorschau
+
+```bash
+git clone https://github.com/SurabLink/easywired-new.git
+cd easywired-new
+python3 -m http.server 8000
+# http://localhost:8000/
+```
+
+---
+
+## Deployment
+
+Bei jedem Push auf `main`/`master` synchronisiert der GitHub-Actions-Workflow das Repository (außer `.github/`, `.git*`, `docs/`, `README*`, `.env*`, `node_modules/`) per `rsync --delete` nach `/srv/easywired-new/` auf den STRATO-VPS.
+
+Benötigte GitHub-Secrets:
 
 - `STRATO_HOST`, `STRATO_USER`, `STRATO_SSH_KEY` (Pflicht)
-- `STRATO_PORT` (Standard 22), `STRATO_TARGET_DIR` (muss `/srv/easywired-new` sein)
+- `STRATO_PORT` (Default `22`), `STRATO_TARGET_DIR` (muss `/srv/easywired-new` sein)
 
-Für ein manuelles Dry-Run-Deployment kann der Workflow „Deploy“ über die GitHub-Actions-Oberfläche mit `dry_run=true` gestartet werden. Details siehe [`docs/deploy-ssh.md`](docs/deploy-ssh.md).
+Manueller Dry-Run: GitHub → Actions → „Deploy" → „Run workflow" → `dry_run=true`.
 
-## Migrations-Skripte
+Details siehe [`docs/deploy-ssh.md`](docs/deploy-ssh.md).
 
-Die genutzten Skripte zur Reproduktion liegen außerhalb dieses Repos (`/app/scripts/` in der Build-Umgebung):
+---
 
-| Skript | Aufgabe |
-| --- | --- |
-| `wget --mirror ...` | Vollständiger Crawl von `www.easywired.de` ohne `/kontakt.html` |
-| `download_cdn_assets.py` | Rekursiver Download aller von Weebly-CDNs referenzierten Sub-Assets |
-| `rewrite_links.py` | Pfade auf lokale `cdn-assets/`-Kopien umschreiben |
-| `remove_kontakt.py` | Entfernt sämtliche Verweise auf `kontakt.html` |
-| `strip_cache_busters.py` | Entfernt `@digits`/`?digits`-Cache-Buster aus Dateinamen und Referenzen |
+## Kontakt
+
+Verantwortlich: Surab Link, Robert-Kircher-Str. 4, 36037 Fulda — `kontakt@easywired.de`
+
+Bei Sicherheits-Findings: bitte über [`.well-known/security.txt`](.well-known/security.txt) melden.
