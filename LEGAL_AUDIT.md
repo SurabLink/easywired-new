@@ -25,6 +25,7 @@
 | --- | --- | --- | --- |
 | L-1 | HIGH | Veraltetes Impressum: Verweis auf §§ TMG/RStV statt DDG/MStV; Nennung von „Cookies" und „YouTube-Cookies", die laut tatsächlichem Code gar nicht (mehr) gesetzt werden; Verweis auf Kontaktformular, das gar nicht existiert. | ✅ **Komplett neu geschrieben** ([impressum-und-datenschutz.html](impressum-und-datenschutz.html)) |
 | L-2 | HIGH | Veralteter Cookie-Banner (Weebly „Opt Out of Cookies"-Button + Cookiebot-Banner) – inkonsistent zur tatsächlichen Datenverarbeitung. | ✅ **Cookiebot/Zotabox-Skripte entfernt**, "Opt Out"-Button raus, **eigener, ehrlicher Info-Banner** gebaut |
+| L-2b | CRITICAL | **Nachtrag Refactoring 2026-01-30**: Google Analytics (`UA-7870337-1`), Snowplow-Tracker (an `ec.editmysite.com`) und Google-reCAPTCHA-Config waren nach dem ersten Cleanup noch als inline-`<script>`-Blöcke auf jeder Seite eingebettet — das widersprach der Datenschutzerklärung, die ich zuvor geschrieben hatte. | ✅ **Vollständig entfernt** via `scripts/10_refactor_extract_common.py`. Datenschutzerklärung stimmt jetzt tatsächlich mit dem Code überein. |
 | L-3 | MEDIUM | Datenschutzerklärung beschrieb Cookies, die nie existiert haben, und Drittanbieter-Einbettungen, die nicht mehr aktiv sind. | ✅ **Neu verfasst**, beschreibt **nur** das, was der Code tatsächlich tut |
 | L-4 | MEDIUM | Habbo/Sulake-Disclaimer fehlte/war veraltet (Sulake firmiert seit 2024 als „Sulake Oy", nicht mehr „Corporation Ltd."). | ✅ **Aktualisiert** + um nicht-kommerziellen Hobbycharakter ergänzt |
 | L-5 | MEDIUM | Datenschutz-Aufsichtsbehörde nicht namentlich genannt (Pflicht zur Nennung der zuständigen Behörde nach Art. 13 Abs. 2 lit. d DSGVO empfohlen). | ✅ **Hessischer Beauftragter für Datenschutz und Informationsfreiheit** explizit benannt mit Anschrift und Link |
@@ -75,7 +76,7 @@ Implementiert in [`assets/privacy-notice.css`](assets/privacy-notice.css) (Theme
 | Aufgabe | Warum | Aufwand |
 | --- | --- | --- |
 | 1. E-Mail-Postfach `kontakt@easywired.de` einrichten (z. B. via STRATO-Mail) | § 5 DDG: muss eingehende Mails empfangen können | 5 Min im STRATO-Kundenbereich |
-| 2. PAT widerrufen (`github_pat_11BPHTLXY01LEkSr...`), das während der ersten Session geteilt wurde | Security-Hygiene | 1 Min |
+| 2. PAT widerrufen (`github_pat_<REDACTED>...`), das während der ersten Session geteilt wurde | Security-Hygiene | 1 Min |
 | 3. HTTPS auf STRATO aktivieren (nginx-Snippet liegt in [`docs/nginx-security.conf`](docs/nginx-security.conf) bereit) | Pflicht-Voraussetzung für HSTS, Cookie-Banner-Banner-Behörden-Konformität, SEO | 15-30 Min |
 | 4. STRATO-Log-Konfiguration auf max. 7 Tage Aufbewahrung einstellen (Standard ist evtl. länger) | Konsistenz zur Datenschutzerklärung | im STRATO-Panel oder per `logrotate` |
 | 5. Prüfen: möchten Sie evtl. einen anderen Kontaktweg statt der E-Mail (z. B. Discord)? Falls ja, einfach in Ziffer 1 des Impressums anpassen. | Persönliche Präferenz | optional |

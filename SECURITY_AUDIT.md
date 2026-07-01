@@ -30,8 +30,10 @@ Reale Angriffsflächen:
 | --- | --- | --- | --- |
 | 1 | CRITICAL | Kein HTTPS auf Produktion | **Anleitung im Repo bereitgestellt** (`docs/nginx-security.conf`) – muss von Ihnen auf dem VPS aktiviert werden |
 | 2 | HIGH | 3rd-Party-Tracker laden Code ohne SRI | ✅ **Behoben** (Zotabox, Cookiebot, Smilingoat, Weebly Lead-Form entfernt) |
+| 2b | CRITICAL | **Nachtrag Refactoring 2026-01-30:** In jeder Seite waren zusätzlich verborgen: <br>• **Google Analytics `UA-7870337-1`** (loader für `google-analytics.com/ga.js`)<br>• **Snowplow-Tracker** an `ec.editmysite.com` (mit `user_id`, `site_id`)<br>• **Google reCAPTCHA-URL-Config** | ✅ **Alle drei ersatzlos entfernt** über `scripts/10_refactor_extract_common.py` |
+| 2c | HIGH | 522 KB **Backbone-Bundle `main-customer-accounts-site.js`** wurde geladen — für einen statischen Mirror ohne Login-Flow reines Bloat + JS-Error-Quelle | ✅ **Referenz aus allen 183 Seiten entfernt** |
 | 3 | HIGH | 8 Videos + 7 Bilder weiterhin von `weebly.com` geladen | ✅ **Behoben** (lokal nach `media/weebly/` kopiert, HTML5 `<video>`-Player eingebaut) |
-| 4 | HIGH | Keine Security-Header (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy) | ✅ **Per `<meta>` injiziert** in alle 183 HTML-Seiten + nginx-Snippet für vollständigen HTTP-Header-Set |
+| 4 | HIGH | Keine Security-Header (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy) | ✅ **Per `<meta>` injiziert** in alle 183 HTML-Seiten + nginx-Snippet für vollständigen HTTP-Header-Set. `frame-ancestors` liegt nur im nginx-Header, weil es als Meta-Tag von Browsern ignoriert wird. |
 | 5 | MEDIUM | 301 `target="_blank"`-Links ohne `rel="noopener noreferrer"` | ✅ **Behoben** (316 Links gehärtet) |
 | 6 | MEDIUM | jQuery 1.8.3 + 2.1.4 mit bekannten CVEs | ⚠️ **Risiko-Akzeptanz dokumentiert** – Upgrade würde Weebly-Template brechen, daher CSP als Mitigations-Layer + keinerlei User-Input → nicht ausnutzbar im aktuellen Kontext |
 | 7 | MEDIUM | nginx Server-Banner enthält Version | ⚠️ **Fix in `docs/nginx-security.conf`** (`server_tokens off`) |
@@ -39,7 +41,7 @@ Reale Angriffsflächen:
 | 9 | LOW | Duplicate `<script src="zotabox">`-Tag | ✅ **Behoben** (bei Tracker-Entfernung mit erledigt) |
 | 10 | INFO | GitHub Actions Workflow | ✅ **Audit bestanden** – minimale Permissions, Secrets via GH-Secrets, ssh-keyscan-TOFU für `known_hosts`, harte `STRATO_TARGET_DIR`-Validierung |
 | 11 | INFO | Git-History | ✅ **Audit bestanden** – keine geleakten Schlüssel, Tokens oder Passwörter im Repo oder in der Historie |
-| 12 | INFO | PAT in Chat geteilt (`github_pat_11BPHTLXY01LEkSr...`) | ⚠️ **Sie müssen das Token in GitHub widerrufen** (Settings → Developer settings → Personal access tokens) |
+| 12 | INFO | PAT in Chat geteilt (`github_pat_<REDACTED>...`) | ⚠️ **Sie müssen das Token in GitHub widerrufen** (Settings → Developer settings → Personal access tokens) |
 
 ---
 
@@ -174,7 +176,7 @@ Keine Änderungen am Workflow erforderlich.
 
 ### 12. Geleaktes PAT in Chat (INFO – Ihre Aktion erforderlich)
 
-Während des initialen Pushes wurde ein GitHub Personal Access Token (`github_pat_11BPHTLXY01LEkSr...`) im Chat geteilt. Es wurde vom Build-Container nur als Authentication-Header verwendet und sofort nach dem Push aus der Remote-URL entfernt; im Repository selbst gibt es keine Spur davon.
+Während des initialen Pushes wurde ein GitHub Personal Access Token (`github_pat_<REDACTED>...`) im Chat geteilt. Es wurde vom Build-Container nur als Authentication-Header verwendet und sofort nach dem Push aus der Remote-URL entfernt; im Repository selbst gibt es keine Spur davon.
 
 **Empfohlene Aktion (von Ihnen auszuführen):**
 
