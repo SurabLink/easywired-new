@@ -38,15 +38,46 @@
       <span class="site-brand__name">easy<span>WIRED</span></span>
     </a>
     <nav class="site-nav" data-testid="site-nav" aria-label="Hauptnavigation">
-      <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="index.html">Start</a></li>
-          <li><a class="site-nav__link" href="news.html">News</a></li>
-          <li><a class="site-nav__link" href="wireds-lernen.html">Wireds Lernen</a></li>
-          <li><a class="site-nav__link" href="wired-szene.html">Wired Szene</a></li>
-          <li><a class="site-nav__link" href="tipps--tricks.html">Tipps &amp; Tricks</a></li>
-          <li><a class="site-nav__link" href="teammitglieder.html">Teammitglieder</a></li>
-          <li><a class="site-nav__link" href="impressum-und-datenschutz.html">Impressum</a></li>
-      </ul>
+  <ul class="site-nav__list">
+      <li class="site-nav__item"><a class="site-nav__link" href="index.html">Start</a></li>
+      <li class="site-nav__item" data-has-children="true" data-open="false">
+        <a class="site-nav__link" href="news.html">News<svg class="site-nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></a>
+        <ul class="site-nav__submenu" role="menu">
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="easywired.html">easyWIRED</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="update-liste.html">Update Liste</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="interview1.html">Interview</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="community-fragen.html">Community-Fragen</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="wired-forschung.html">Wired-Forschung</a></li>
+        </ul>
+      </li>
+      <li class="site-nav__item" data-has-children="true" data-open="false">
+        <a class="site-nav__link" href="wireds-lernen.html">Wireds Lernen<svg class="site-nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></a>
+        <ul class="site-nav__submenu" role="menu">
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="wired-artikel.html">Wired-Artikel</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="wired-tool.html">Wired-Tool</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="kurztutorials.html">Kurztutorials</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="videotutorials.html">Videotutorials</a></li>
+        </ul>
+      </li>
+      <li class="site-nav__item" data-has-children="true" data-open="false">
+        <a class="site-nav__link" href="wired-szene.html">Wired Szene<svg class="site-nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></a>
+        <ul class="site-nav__submenu" role="menu">
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="wired-career.html">Wired Career</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="wired-raumlume.html">Wired Räume</a></li>
+        </ul>
+      </li>
+      <li class="site-nav__item" data-has-children="true" data-open="false">
+        <a class="site-nav__link" href="tipps--tricks.html">Tipps &amp; Tricks<svg class="site-nav__caret" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4"/></svg></a>
+        <ul class="site-nav__submenu" role="menu">
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="commands.html">Commands</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="bodenlayout-editor.html">Bodenlayout Editor</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="afk-leveln.html">AFK-Leveln</a></li>
+          <li role="none"><a class="site-nav__sublink" role="menuitem" href="sonstiges.html">Sonstiges</a></li>
+        </ul>
+      </li>
+      <li class="site-nav__item"><a class="site-nav__link" href="teammitglieder.html">Teammitglieder</a></li>
+      <li class="site-nav__item"><a class="site-nav__link" href="impressum-und-datenschutz.html">Impressum</a></li>
+    </ul>
     </nav>
     <div class="header-actions">
       <button class="icon-button icon-button--theme" type="button"

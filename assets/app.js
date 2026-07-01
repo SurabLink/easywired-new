@@ -68,13 +68,14 @@
   applyTheme(readStoredTheme());
 
   /* --------------------------------------------------------------------- */
-  /* 2. Mobile-Navigation                                                  */
+  /* 2. Mobile-Navigation + Dropdown-Menüs                                 */
   /* --------------------------------------------------------------------- */
   function bindNavToggle() {
     var btn = document.querySelector('[data-testid="nav-toggle"]');
     var nav = document.querySelector('[data-testid="site-nav"]');
     if (!btn || !nav) return;
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (evt) {
+      evt.stopPropagation();
       var open = nav.getAttribute("data-open") === "true";
       nav.setAttribute("data-open", open ? "false" : "true");
       btn.setAttribute("aria-expanded", open ? "false" : "true");
@@ -92,6 +93,50 @@
     });
   }
 
+  function bindDropdowns() {
+    var items = document.querySelectorAll(
+      '.site-nav__item[data-has-children="true"]'
+    );
+    if (!items.length) return;
+
+    function closeAll(except) {
+      items.forEach(function (i) {
+        if (i !== except) {
+          i.setAttribute("data-open", "false");
+          var btn = i.querySelector(".site-nav__link");
+          if (btn) btn.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    items.forEach(function (item) {
+      var trigger = item.querySelector(".site-nav__link");
+      if (!trigger) return;
+      trigger.setAttribute("aria-haspopup", "true");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        var open = item.getAttribute("data-open") === "true";
+        closeAll(open ? null : item);
+        item.setAttribute("data-open", open ? "false" : "true");
+        trigger.setAttribute("aria-expanded", open ? "false" : "true");
+      });
+    });
+
+    // Close dropdowns on outside click / Esc
+    document.addEventListener("click", function (evt) {
+      var inside = false;
+      items.forEach(function (i) {
+        if (i.contains(evt.target)) inside = true;
+      });
+      if (!inside) closeAll(null);
+    });
+    document.addEventListener("keydown", function (evt) {
+      if (evt.key === "Escape") closeAll(null);
+    });
+  }
+
   /* --------------------------------------------------------------------- */
   /* 3. Highlight aktueller Nav-Link                                       */
   /* --------------------------------------------------------------------- */
@@ -99,11 +144,23 @@
     var here = (window.location.pathname.split("/").pop() || "index.html")
       .toLowerCase();
     if (!here) here = "index.html";
-    var links = document.querySelectorAll(".site-nav__link[href]");
+    var links = document.querySelectorAll(
+      ".site-nav__link[href], .site-nav__sublink[href]"
+    );
     for (var i = 0; i < links.length; i++) {
-      var href = links[i].getAttribute("href").split("?")[0].split("#")[0].toLowerCase();
+      var href = links[i]
+        .getAttribute("href")
+        .split("?")[0]
+        .split("#")[0]
+        .toLowerCase();
       if (href === here) {
         links[i].setAttribute("aria-current", "page");
+        // Also open the parent dropdown so the current sub-item is visible
+        var parentItem = links[i].closest('.site-nav__item[data-has-children="true"]');
+        if (parentItem) {
+          var parentLink = parentItem.querySelector(".site-nav__link");
+          if (parentLink) parentLink.setAttribute("aria-current", "page");
+        }
       }
     }
   }
@@ -114,6 +171,7 @@
   function boot() {
     bindThemeToggle();
     bindNavToggle();
+    bindDropdowns();
     markCurrentNav();
   }
 
