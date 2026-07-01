@@ -215,14 +215,16 @@ hr {
 /* ---------- Navigation -------------------------------------------------- */
 .site-nav {
   flex: 1;
+  min-width: 0;
 }
 .site-nav__list {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
+  justify-content: center;
 }
 .site-nav__item {
   position: relative;
@@ -230,49 +232,49 @@ hr {
 .site-nav__link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 14px;
+  gap: 6px;
+  padding: 10px 14px;
   border-radius: var(--radius);
   color: var(--text-muted);
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.3px;
+  font-size: 13px;
+  letter-spacing: 0.4px;
   text-transform: uppercase;
   transition: color var(--t-fast) ease, background-color var(--t-fast) ease;
   background: transparent;
   border: 0;
-  cursor: pointer;
   font-family: inherit;
   white-space: nowrap;
+  text-decoration: none;
 }
 .site-nav__link:hover,
-.site-nav__link[aria-current="page"],
-.site-nav__item[data-open="true"] .site-nav__link {
+.site-nav__link:focus-visible,
+.site-nav__link[aria-current="page"] {
   color: var(--brand);
   background: var(--brand-soft);
   text-decoration: none;
+  outline: none;
 }
 .site-nav__caret {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2;
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: transform var(--t-fast) ease;
-}
-.site-nav__item[data-open="true"] .site-nav__caret {
-  transform: rotate(180deg);
+  transition: transform var(--t-med) ease;
+  opacity: 0.7;
 }
 
-/* Dropdown panel */
+/* -------- Dropdown panel (Desktop: hover-driven, no JS needed) -------- */
 .site-nav__submenu {
   position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translate(-50%, -6px);
   min-width: 220px;
-  padding: 8px;
+  padding: 6px;
   margin: 0;
   list-style: none;
   background: var(--bg-elevated);
@@ -281,36 +283,65 @@ hr {
   box-shadow: var(--shadow-lg);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
+  pointer-events: none;
   transition: opacity var(--t-fast) ease, transform var(--t-fast) ease,
     visibility 0s linear var(--t-fast);
   z-index: 110;
 }
-.site-nav__item[data-open="true"] .site-nav__submenu,
-.site-nav__item:focus-within .site-nav__submenu {
+/* Invisible bridge so cursor moving from parent to menu doesn't close it */
+.site-nav__submenu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+/* Open on hover, focus-within, or explicit data-open="true" (mobile) */
+.site-nav__item:hover > .site-nav__submenu,
+.site-nav__item:focus-within > .site-nav__submenu,
+.site-nav__item[data-open="true"] > .site-nav__submenu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
+  transform: translate(-50%, 0);
   transition-delay: 0s;
 }
+
+.site-nav__item:hover > .site-nav__link .site-nav__caret,
+.site-nav__item:focus-within > .site-nav__link .site-nav__caret,
+.site-nav__item[data-open="true"] > .site-nav__link .site-nav__caret {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.site-nav__item:hover > .site-nav__link,
+.site-nav__item:focus-within > .site-nav__link {
+  color: var(--brand);
+  background: var(--brand-soft);
+}
+
 .site-nav__sublink {
   display: block;
-  padding: 8px 12px;
-  border-radius: var(--radius);
+  padding: 9px 14px;
+  border-radius: 6px;
   color: var(--text);
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 500;
   text-transform: none;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
   text-decoration: none;
   white-space: nowrap;
   transition: color var(--t-fast) ease, background-color var(--t-fast) ease;
 }
 .site-nav__sublink:hover,
+.site-nav__sublink:focus-visible,
 .site-nav__sublink[aria-current="page"] {
   color: var(--brand);
   background: var(--brand-soft);
   text-decoration: none;
+  outline: none;
 }
 
 /* Theme + nav toggles */
@@ -384,7 +415,7 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
     right: 0;
     background: var(--bg-elevated);
     border-bottom: 1px solid var(--border);
-    padding: 16px 20px 24px;
+    padding: 12px 20px 24px;
     box-shadow: var(--shadow-md);
     max-height: 0;
     overflow-y: auto;
@@ -397,13 +428,14 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
     flex-direction: column;
     align-items: stretch;
     gap: 2px;
+    justify-content: flex-start;
   }
   .site-nav__item {
     position: static;
   }
   .site-nav__link {
     padding: 12px 16px;
-    font-size: 15px;
+    font-size: 14px;
     width: 100%;
     justify-content: space-between;
   }
@@ -412,19 +444,48 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
     box-shadow: none;
     border: 0;
     background: transparent;
-    padding: 4px 0 8px 16px;
+    padding: 2px 0 6px 20px;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transform: none;
     display: none;
     min-width: 0;
+    max-height: none;
   }
-  .site-nav__item[data-open="true"] .site-nav__submenu {
+  .site-nav__submenu::before {
+    display: none;
+  }
+  .site-nav__item[data-open="true"] > .site-nav__submenu {
+    display: block;
+  }
+  /* On mobile, only [data-open] opens submenu — no :hover behavior */
+  .site-nav__item:hover > .site-nav__submenu,
+  .site-nav__item:focus-within > .site-nav__submenu {
+    display: none;
+  }
+  .site-nav__item[data-open="true"] > .site-nav__submenu {
     display: block;
   }
   .site-nav__sublink {
-    padding: 10px 12px;
-    font-size: 14px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+  }
+}
+
+/* Touch-only devices (no hover): fall back to tap-toggle even on wide viewports */
+@media (hover: none) {
+  .site-nav__item:hover > .site-nav__submenu,
+  .site-nav__item:focus-within > .site-nav__submenu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .site-nav__item[data-open="true"] > .site-nav__submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
   }
 }
 

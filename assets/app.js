@@ -94,17 +94,29 @@
   }
 
   function bindDropdowns() {
+    /*
+     * Desktop verhält sich rein per CSS :hover / :focus-within — der
+     * Parent-Link bleibt klickbar und navigiert zur Übersichtsseite.
+     *
+     * Nur auf Touch/Mobile brauchen wir Skript-Logik: der erste Tap auf
+     * einen Parent mit Kindern öffnet das Submenü (Navigation wird dann
+     * verhindert), der zweite Tap folgt dem Link zur Übersichtsseite.
+     */
     var items = document.querySelectorAll(
       '.site-nav__item[data-has-children="true"]'
     );
     if (!items.length) return;
 
+    // Feature-detect: echte Touch- oder Coarse-Pointer-Geräte
+    var isCoarse =
+      window.matchMedia && window.matchMedia("(hover: none)").matches;
+
     function closeAll(except) {
       items.forEach(function (i) {
         if (i !== except) {
           i.setAttribute("data-open", "false");
-          var btn = i.querySelector(".site-nav__link");
-          if (btn) btn.setAttribute("aria-expanded", "false");
+          var l = i.querySelector(".site-nav__link");
+          if (l) l.setAttribute("aria-expanded", "false");
         }
       });
     }
@@ -114,17 +126,29 @@
       if (!trigger) return;
       trigger.setAttribute("aria-haspopup", "true");
       trigger.setAttribute("aria-expanded", "false");
+
+      // In der Mobile-Navigation (Hamburger) UND auf Touch-Devices bleibt
+      // der erste Klick beim Toggle stehen. Auf Desktop mit Maus lassen
+      // wir den Klick normal durchgehen (keine preventDefault).
       trigger.addEventListener("click", function (evt) {
-        evt.preventDefault();
-        evt.stopPropagation();
+        var inMobileNav =
+          window.matchMedia("(max-width: 900px)").matches;
+        if (!inMobileNav && !isCoarse) {
+          return; // Desktop-Maus: einfach dem Link folgen
+        }
         var open = item.getAttribute("data-open") === "true";
-        closeAll(open ? null : item);
-        item.setAttribute("data-open", open ? "false" : "true");
-        trigger.setAttribute("aria-expanded", open ? "false" : "true");
+        if (!open) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          closeAll(item);
+          item.setAttribute("data-open", "true");
+          trigger.setAttribute("aria-expanded", "true");
+        }
+        // Zweiter Tap: nichts weiter tun — Link folgt normal
       });
     });
 
-    // Close dropdowns on outside click / Esc
+    // Klick außerhalb / Escape schließt offene Menüs
     document.addEventListener("click", function (evt) {
       var inside = false;
       items.forEach(function (i) {
