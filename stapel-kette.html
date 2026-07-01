@@ -1,373 +1,93 @@
 <!DOCTYPE html>
-<html lang="de_DE">
-	<head>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Stapel-Kette – easyWIRED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="easyWIRED — privates Habbo-Wired-Fanprojekt von Surab Link.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; font-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=()">
-
-		<title>Stapel-Kette - EASYWIRED</title><meta property="og:site_name" content="EASYWIRED" />
-<meta property="og:title" content="Stapel-Kette" />
-<meta property="og:description" content="Manche Auslöser werden nur aktiviert, wenn vorher ein passender Effekt ausgeführt wurde. Das erlaubt eine  Kette von Ereignissen , weil üblicherweise der Auslöser zuerst aktiviert wird.  Im..." />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/logo-ew_227.gif" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/764922662_orig.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/514805687.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/148876576.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/498341177.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/305558063.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/279025652.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/353786172.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/867552233.png" />
-<meta property="og:image" content="./uploads/1/2/4/2/124287907/871634648.png" />
-<meta property="og:url" content="./stapel-kette.html" />
-
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="cdn-assets/cdn11.editmysite.com/css/sites.css" />
-<link rel="stylesheet" type="text/css" href="cdn-assets/cdn11.editmysite.com/css/old/fancybox.css" />
-<link rel="stylesheet" type="text/css" href="cdn-assets/cdn11.editmysite.com/css/social-icons.css" media="screen,projection" />
-<link rel="stylesheet" type="text/css" href="files/main_style.css@1782116011.css" title="wsite-theme-css" />
-<link href='cdn-assets/cdn2.editmysite.com/fonts/Montserrat/font.css' rel='stylesheet' type='text/css' />
-
-<link rel="stylesheet" href="assets/site-theme.css">
-
-		<script src='files/templateArtifacts.js'></script>
-<script src="assets/site-config.js"></script>
-<script src='cdn-assets/cdn11.editmysite.com/js/jquery-1.8.3.min.js'></script>
-
-<script type="text/javascript" src="cdn-assets/cdn2.editmysite.com/js/lang/de_DE/stl.js"></script>
-<script src="cdn-assets/cdn11.editmysite.com/js/site/main.js"></script>
-		<script>_W = _W || {};
-			_W.customerLocale = "en_US";
-			_W.storeName = null;
-			_W.isCheckoutReskin = false;
-			_W.storeCountry = "DE";
-			_W.storeCurrency = "EUR";
-			_W.storeEuPrivacyPolicyUrl = "";
-			com_currentSite = "566137816592563923";
-			com_userID = "124287907";</script>
-<script type="text/javascript" src="cdn-assets/cdn2.editmysite.com/js/lang/de_DE/stl.js"></script><script> _W.themePlugins = [];</script><script type="text/javascript"><!--
-	
-	var DISABLE_NAV_MORE = 1;
-	function initFlyouts(){
-		initPublishedFlyoutMenus(
-			[{"id":"471481021238466717","title":"Start","url":"index.html","target":"","nav_menu":false,"nonclickable":false},{"id":"353481056182946901","title":"News","url":"news.html","target":"","nav_menu":false,"nonclickable":true},{"id":"610518997779451804","title":"Wireds Lernen","url":"wireds-lernen.html","target":"","nav_menu":false,"nonclickable":true},{"id":"291220463579520736","title":"Wired Szene","url":"wired-szene.html","target":"","nav_menu":false,"nonclickable":true},{"id":"710986301557406832","title":"Tipps & Tricks","url":"tipps--tricks.html","target":"","nav_menu":false,"nonclickable":true},{"id":"312351942173649279","title":"Teammitglieder","url":"teammitglieder.html","target":"","nav_menu":false,"nonclickable":false}],
-			"680486464470422166",
-			'',
-			'active',
-			false,
-			{"navigation\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}} class=\"wsite-menu-item-wrap\">\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\t{{#membership_required}}\n\t\t\tdata-membership-required=\"{{.}}\"\n\t\t{{\/membership_required}}\n\t\tclass=\"wsite-menu-item\"\n\t\t>\n\t\t{{{title_html}}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n","navigation\/flyout\/list":"<div class=\"wsite-menu-wrap\" style=\"display:none\">\n\t<ul class=\"wsite-menu\">\n\t\t{{#children}}{{> navigation\/flyout\/item}}{{\/children}}\n\t<\/ul>\n<\/div>\n","navigation\/flyout\/item":"<li {{#id}}id=\"{{id}}\"{{\/id}}\n\tclass=\"wsite-menu-subitem-wrap {{#is_current}}wsite-nav-current{{\/is_current}}\"\n\t>\n\t<a\n\t\t{{^nonclickable}}\n\t\t\t{{^nav_menu}}\n\t\t\t\thref=\"{{url}}\"\n\t\t\t{{\/nav_menu}}\n\t\t{{\/nonclickable}}\n\t\t{{#target}}\n\t\t\ttarget=\"{{target}}\"\n\t\t{{\/target}}\n\t\tclass=\"wsite-menu-subitem\"\n\t\t>\n\t\t<span class=\"wsite-menu-title\">\n\t\t\t{{{title_html}}}\n\t\t<\/span>{{#has_children}}<span class=\"wsite-menu-arrow\">&gt;<\/span>{{\/has_children}}\n\t<\/a>\n\t{{#has_children}}{{> navigation\/flyout\/list}}{{\/has_children}}\n<\/li>\n"},
-			{}
-		)
-	}
-//-->
+<meta property="og:title" content="Stapel-Kette">
+<meta property="og:description" content="easyWIRED — privates Habbo-Wired-Fanprojekt von Surab Link.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./uploads/1/2/4/2/124287907/logo-ew_227.gif">
+<link rel="icon" href="uploads/1/2/4/2/124287907/editor/logo-ew.gif">
+<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/privacy-notice.css">
+<script>
+  // Frühestmögliches Anwenden des gespeicherten Themes, um "Flash of Wrong
+  // Theme" zu vermeiden. Ausführlicher Toggle-Code in assets/app.js.
+  (function () {
+    try {
+      var t = localStorage.getItem('ew-theme');
+      if (t === 'light' || t === 'dark') {
+        document.documentElement.setAttribute('data-theme', t);
+      }
+    } catch (e) {}
+  })();
 </script>
-
-        
-	<link rel="stylesheet" href="assets/privacy-notice.css">
 </head>
-	<body class="no-header-page  wsite-page-stapel-kette  wsite-theme-light"><div class="wrapper">
-    <div class="cento-header">
-      <div class="nav-wrap">
-        <div class="container">
-          <a class="hamburger" aria-label="Menu" href="stapel-kette.html#"><span></span></a>
-          <div class="logo"><span class="wsite-logo">
+<body>
 
-	<a href="index.html">
-	
-	<span id="wsite-title">EASYWIRED</span>
-	
-	</a>
-
-</span></div>
-          <div class="nav desktop-nav"><div class="container"><ul class="wsite-menu-default">
-		<li id="pg471481021238466717" class="wsite-menu-item-wrap">
-			<a
-						href="index.html"
-				class="wsite-menu-item"
-				>
-				Start
-			</a>
-			
-		</li>
-		<li id="pg353481056182946901" class="wsite-menu-item-wrap">
-			<a
-				class="wsite-menu-item"
-				>
-				News
-			</a>
-			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-315380647657528846"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="easywired.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			easyWIRED
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-888689312710469406"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="update-liste.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Update Liste
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-429543127465747085"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="interview1.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Interview
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-521577762849119362"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="community-fragen.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Community-Fragen
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-777508253923537700"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-forschung.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired-Forschung
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-		</li>
-		<li id="pg610518997779451804" class="wsite-menu-item-wrap">
-			<a
-				class="wsite-menu-item"
-				>
-				Wireds Lernen
-			</a>
-			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-611825001942073367"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-artikel.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired-Artikel
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-992216504488925810"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-tool.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired-Tool
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-274370708171663620"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="kurztutorials.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Kurztutorials
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-415275827948832770"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="videotutorials.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Videotutorials
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-		</li>
-		<li id="pg291220463579520736" class="wsite-menu-item-wrap">
-			<a
-				class="wsite-menu-item"
-				>
-				Wired Szene
-			</a>
-			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-427394895994961127"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-career.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired Career
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-564752378331256339"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-raumlume.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired R&auml;ume
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-		</li>
-		<li id="pg710986301557406832" class="wsite-menu-item-wrap">
-			<a
-				class="wsite-menu-item"
-				>
-				Tipps & Tricks
-			</a>
-			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-983928021238416269"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="commands.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Commands
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-796108120282899390"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="bodenlayout-editor.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Bodenlayout Editor
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-983694450225847092"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="afk-leveln.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			AFK-Leveln
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-740098670410080861"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="sonstiges.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Sonstiges
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-		</li>
-		<li id="pg312351942173649279" class="wsite-menu-item-wrap">
-			<a
-						href="teammitglieder.html"
-				class="wsite-menu-item"
-				>
-				Teammitglieder
-			</a>
-			
-		</li>
-		
-</ul>
-</div></div>
-        </div>
-      </div>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-brand" href="index.html" data-testid="brand-link">
+      <img class="site-brand__logo" src="uploads/1/2/4/2/124287907/editor/logo-ew.gif" alt="">
+      <span class="site-brand__name">easy<span>WIRED</span></span>
+    </a>
+    <nav class="site-nav" data-testid="site-nav" aria-label="Hauptnavigation">
+      <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Start</a></li>
+          <li><a class="site-nav__link" href="news.html">News</a></li>
+          <li><a class="site-nav__link" href="wireds-lernen.html">Wireds Lernen</a></li>
+          <li><a class="site-nav__link" href="wired-szene.html">Wired Szene</a></li>
+          <li><a class="site-nav__link" href="tipps--tricks.html">Tipps &amp; Tricks</a></li>
+          <li><a class="site-nav__link" href="teammitglieder.html">Teammitglieder</a></li>
+          <li><a class="site-nav__link" href="impressum-und-datenschutz.html">Impressum</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button icon-button--theme" type="button"
+              data-testid="theme-toggle"
+              aria-label="Zu dunklem Design wechseln">
+        <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+        </svg>
+        <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+      </button>
+      <button class="icon-button nav-toggle" type="button"
+              data-testid="nav-toggle"
+              aria-label="Menü öffnen"
+              aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
     </div>
+  </div>
+</header>
 
-    <div class="main-wrap">
-      <div id="wsite-content" class="wsite-elements wsite-not-footer">
-	<div class="wsite-section-wrap">
-	<div class="wsite-section wsite-body-section wsite-background-708" style="height: auto;" >
-		<div class="wsite-section-content">
-          <div class="container">
-			<div class="wsite-section-elements">
-				<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:6.8695652173913%; padding:0 15px;">
+<main class="site-main" data-testid="page-main">
+  <header class="page-hero">
+    <h1 class="page-hero__title">Stapel-Kette</h1>
+  </header>
+  <article class="content" data-testid="page-content">
+<div class="ew-section ew-body-section ew-background-708" style="height: auto;" >
+		<div class="ew-section-elements">
+				<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:6.8695652173913%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/logo-ew_227.gif" alt="Bild" style="width:auto;max-width:100%" />
 </a>
@@ -375,9 +95,9 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:93.130434782609%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:93.130434782609%; padding:0 15px;">
 
-<h2 class="wsite-content-title"><br />&#8203;Wired Artikel</h2>
+<h2 class="ew-content-title"><br />&#8203;Wired Artikel</h2>
 
 					
 				</td>			</tr>
@@ -389,23 +109,23 @@
 <hr class="styled-hr" style="width:100%;"></hr>
 <div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
 
-<h2 class="wsite-content-title"><br /><strong><font size="6">Stapel-Kette</font></strong></h2>
+<h2 class="ew-content-title"><br /><strong><font size="6">Stapel-Kette</font></strong></h2>
 
 <div class="paragraph"><span></span>Manche Ausl&ouml;ser werden nur aktiviert, wenn vorher ein passender Effekt ausgef&uuml;hrt wurde. Das erlaubt eine&nbsp;<strong>Kette von Ereignissen</strong>, weil &uuml;blicherweise der Ausl&ouml;ser zuerst aktiviert wird.&nbsp;<a href="https://www.habbotales.de/news/wired-builder-kurs-1-stapel-logik-und-wired-typen?site=1" target="_blank" rel="noopener noreferrer"><strong>Im vorherigen Artikel</strong></a>&nbsp;hatten wir gelernt, dass der Ausl&ouml;ser der 1. Dominostein ist. Das bleibt auch weiterhin Tatsache. Dieser Artikel zeigt nun, welche Ausl&ouml;ser welche Effekte brauchen und wie eine Dauerschleife gebaut werden kann.<br /><span></span></div>
 
-<h2 class="wsite-content-title"><strong>Weiterleitungen und Stapelketten</strong><br /></h2>
+<h2 class="ew-content-title"><strong>Weiterleitungen und Stapelketten</strong><br /></h2>
 
 <div class="paragraph">Wir wissen nun bereits, dass Effekte, die einen Habbo ben&ouml;tigen, den Habbo ausw&auml;hlen, der den Stapel ausgel&ouml;st hat. Man k&ouml;nnte auch sagen, der Ausl&ouml;ser hat den Habbo an den Effekt&nbsp;<strong>weitergeleitet&nbsp;</strong>(informationstechnisch gesehen). Bei manchen Stapelketten erfolgt diese Weiterleitung sogar&nbsp;<strong>&uuml;ber mehrere Stapel hinweg</strong>, sodass der ausl&ouml;sende Habbo auch dem letzten Stapel noch bekannt ist. Aber zuerst... warum sollte man sich damit besch&auml;ftigen? Hat das irgendeinen&nbsp;<strong>Mehrwert? Ja!&nbsp;</strong>Hier einige Gr&uuml;nde:<br />&#8203;<ul><li>Manche Ausl&ouml;ser lassen sich ausschlie&szlig;lich durch einen&nbsp;<strong>vorherigen ausgel&ouml;sten Stapel</strong>&nbsp;aktivieren.</li><li>Tr&auml;gt zum&nbsp;<strong>Gesamtverst&auml;ndnis&nbsp;</strong>der Wireds bei.</li><li>Erlaubt&nbsp;<strong>mehrere M&ouml;glichkeiten</strong>&nbsp;f&uuml;r neue Methoden.</li><li>Leichtere&nbsp;<strong>Fehlererkennung&nbsp;</strong>bei Stapelketten.</li><li>Damit k&ouml;nnen&nbsp;<strong>While/For-Schleifen</strong>&nbsp;gebaut werden (besonders f&uuml;r Programmierer interessant - dazu sp&auml;ter mehr).</li></ul><br />Sehen wir uns nun an, welche Ausl&ouml;ser konkret welchen Effekt ben&ouml;tigen. &Uuml;brigens, leiten nicht alle den ausl&ouml;senden Typ zum n&auml;chsten Stapel weiter. (Die&nbsp;<strong>Ausnahmen&nbsp;</strong>bedeuten, dass einige Ausl&ouml;ser noch anders aktiviert werden k&ouml;nnen).<br /></div>
 
-<h2 class="wsite-content-title"><strong>Sekund&auml;re Ausl&ouml;ser</strong><br /></h2>
+<h2 class="ew-content-title"><strong>Sekund&auml;re Ausl&ouml;ser</strong><br /></h2>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5.6086956521739%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5.6086956521739%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/764922662_orig.png" alt="Bild" style="width:auto;max-width:100%" />
 </a>
@@ -413,7 +133,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:94.391304347826%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:94.391304347826%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Kollision&nbsp;</strong>- Eine Kollision findet nur statt, wenn einer der folgenden Effekte ausgef&uuml;hrt wird und das M&ouml;bel einen Habbo trifft:&nbsp;<em>Angriff, Flucht oder M&ouml;belrichtung &auml;ndern</em>.&nbsp;Hierbei wird zwar der ausl&ouml;sende Habbo nicht von Stapel 1 zu Stapel 2 weitergeleitet, aber es ben&ouml;tigt dennoch eine Stapelkette aus 2 Stapeln, um Kollision nutzen zu k&ouml;nnen.&nbsp;<u>Ausnahmen</u>: Keine.<br /></div>
 
@@ -423,13 +143,13 @@
 	</table>
 </div></div></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5.3478260869565%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5.3478260869565%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/514805687.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -437,7 +157,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:94.652173913043%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:94.652173913043%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Zum programmierten Zeitpunkt</strong>&nbsp;- L&ouml;st zum eingestellten Zeitpunkt aus. Damit er das tun kann, braucht es aber einen Effekt, der die Zeit auf 0 setzt, n&auml;mlich&nbsp;<em>Timer zur&uuml;cksetzen</em>. Sonst w&uuml;rde der Ausl&ouml;ser ja nicht wissen, wie viel Zeit vergangen ist von welchem Zeitpunkt aus gesehen.&nbsp;<u>Ausnahmen</u>: Wird der Raum userleer neu geladen, wird die Zeit des Ausl&ouml;sers ebenfalls resettet und es l&ouml;st nach x Sekunden des Neuladens aus.<br /></div>
 
@@ -447,13 +167,13 @@
 	</table>
 </div></div></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5.5217391304348%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5.5217391304348%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/148876576.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -461,7 +181,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:94.478260869565%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:94.478260869565%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Erreichter Punktwert</strong>&nbsp;-&nbsp;<em>Punkte geben</em>&nbsp;und&nbsp;<em>Punkte &uuml;bertragen</em>&nbsp;sind die Effekte, die gebraucht werden, um Teampunkte zu erhalten. Dabei muss ein Spiel-Timer am Laufen sein, und idealerweise sollte jemand in einem Team sein.&nbsp;<u>Ausnahmen</u>: Blobs und auch ByeBye B&ouml;den vergeben ebenfalls Teampunkte, wodurch nat&uuml;rlich auch bestimmte Punkte erreicht werden k&ouml;nnen.</div>
 
@@ -471,13 +191,13 @@
 	</table>
 </div></div></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5.3478260869565%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5.3478260869565%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/498341177.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -485,7 +205,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:94.652173913043%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:94.652173913043%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Signal empfangen</strong>&nbsp;- Durch&nbsp;<em>Signal senden</em>&nbsp;wird die markierte WIRED-Antenne aktiviert und wenn der Ausl&ouml;ser dieselbe Antenne ausgew&auml;hlt hat, l&ouml;st er den Stapel aus.&nbsp;<u>Ausnahmen</u>: Jemand mit Rechten verwendet eine WIRED-Antenne (probiert es aus!).</div>
 
@@ -495,13 +215,13 @@
 	</table>
 </div></div></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5.3478260869565%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5.3478260869565%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/305558063.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -509,7 +229,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:94.652173913043%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:94.652173913043%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Bot erreicht M&ouml;bel</strong>&nbsp;- Wenn&nbsp;<em>Bot bewegt sich zu M&ouml;bel,</em>&nbsp;denselben Bot und M&ouml;bel ausgew&auml;hlt hat wie der Ausl&ouml;ser und der Effekt erfolgreich ausgef&uuml;hrt wird, aktiviert sich dieser Ausl&ouml;ser.&nbsp;<u>Ausnahme</u>: Bot l&auml;uft oder rollt zuf&auml;llig auf das ausgew&auml;hlte M&ouml;bel herauf/ab.</div>
 
@@ -519,13 +239,13 @@
 	</table>
 </div></div></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/279025652.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -533,7 +253,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:95%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:95%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Bot erreicht User</strong>&nbsp;- Mit&nbsp;<em>Bot folgt User</em>&nbsp;wird der Ausl&ouml;ser aktiviert, sobald der Bot den User erreicht, den er folgt.&nbsp;<u>Ausnahmen</u>: Keine</div>
 
@@ -543,19 +263,19 @@
 	</table>
 </div></div></div>
 
-<div class="wsite-spacer" style="height:50px;"></div>
 
-<h2 class="wsite-content-title"><strong>"<a href="https://www.google.com/search?q=definition+terti%C3%A4r&amp;sca_esv=08a7c6c574dce941&amp;rlz=1C1CHBD_deDE840DE840&amp;sxsrf=ADLYWIIwWKvQ0qWuyjPCOPI83PpQvVdiVA%3A1722626095942&amp;ei=LzCtZuSyOLeLi-gP9sqNkAQ&amp;ved=0ahUKEwikhp2kgteHAxW3xQIHHXZlA0IQ4dUDCBA&amp;uact=5&amp;oq=definition+terti%C3%A4r&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiE2RlZmluaXRpb24gdGVydGnDpHIyBRAAGIAEMgUQABiABDIFEAAYgAQyBhAAGAcYHjIFEAAYgAQyCBAAGAcYHhgPMgQQABgeMgQQABgeMgQQABgeMgQQABgeSLYTUOkDWN4RcAJ4AJABAJgBXaABugaqAQIxMrgBA8gBAPgBAZgCDaACuwbCAgoQABiwAxjWBBhHwgIKEAAYgAQYsQMYDcICBxAAGIAEGA3CAgoQABgHGAoYHhgPwgIIEAAYBxgIGB7CAgoQABgHGAgYHhgPmAMAiAYBkAYIkgcCMTOgB_pL&amp;sclient=gws-wiz-serp" target="_blank" rel="noopener noreferrer">Terti&auml;re</a>" Ausl&ouml;ser</strong><br /></h2>
+
+<h2 class="ew-content-title"><strong>"<a href="https://www.google.com/search?q=definition+terti%C3%A4r&amp;sca_esv=08a7c6c574dce941&amp;rlz=1C1CHBD_deDE840DE840&amp;sxsrf=ADLYWIIwWKvQ0qWuyjPCOPI83PpQvVdiVA%3A1722626095942&amp;ei=LzCtZuSyOLeLi-gP9sqNkAQ&amp;ved=0ahUKEwikhp2kgteHAxW3xQIHHXZlA0IQ4dUDCBA&amp;uact=5&amp;oq=definition+terti%C3%A4r&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiE2RlZmluaXRpb24gdGVydGnDpHIyBRAAGIAEMgUQABiABDIFEAAYgAQyBhAAGAcYHjIFEAAYgAQyCBAAGAcYHhgPMgQQABgeMgQQABgeMgQQABgeMgQQABgeSLYTUOkDWN4RcAJ4AJABAJgBXaABugaqAQIxMrgBA8gBAPgBAZgCDaACuwbCAgoQABiwAxjWBBhHwgIKEAAYgAQYsQMYDcICBxAAGIAEGA3CAgoQABgHGAoYHhgPwgIIEAAYBxgIGB7CAgoQABgHGAgYHhgPmAMAiAYBkAYIkgcCMTOgB_pL&amp;sclient=gws-wiz-serp" target="_blank" rel="noopener noreferrer">Terti&auml;re</a>" Ausl&ouml;ser</strong><br /></h2>
 
 <div class="paragraph">&#8203;Wenn man es so sehen will, sind folgende Ausl&ouml;ser auch nur durch bestimmte Effekte (eher indirekt) aktivierbar:<br /></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/353786172.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -563,7 +283,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:95%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:95%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Spiel beginnt</strong>&nbsp;- Die Effekte&nbsp;<em>M&ouml;belzust&auml;nde umschalten</em>&nbsp;und&nbsp;<em>Z&auml;hler</em>&nbsp;<em>kontrollieren&nbsp;</em>starten den Spiel-Timer. Durch den Start des Timers wird immer auch ein Spiel gestartet (z. B. Freeze oder Banzai). Und wird ein Spiel gestartet, l&ouml;st dieser Ausl&ouml;ser dann letztendlich aus.&nbsp;<u>Ausnahmen</u>: Jemand mit Rechten verwendet einen Spiel-Timer, der nat&uuml;rlich auch das Spiel startet.<br /></div>
 
@@ -573,13 +293,13 @@
 	</table>
 </div></div></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:5.2608695652174%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:5.2608695652174%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/867552233.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -587,7 +307,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:94.739130434783%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:94.739130434783%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>Spiel zuende</strong>&nbsp;- Der Effekt&nbsp;<em>Z&auml;hler kontrollieren</em>&nbsp;kann den Spiel-Timer stoppen. Stoppt (nicht pausiert) ein Timer, dann wird das Spiel (z. B. Freeze oder Banzai) beendet und der Ausl&ouml;ser aktiviert.&nbsp;<u>Ausnahmen</u>: 1. Countdown-Timer laufen zu Ende, 2. jemand mit Rechten beendet den Spiel-Timer manuell. 3. wird auch ausgel&ouml;st, wenn bei Freeze oder Banzai ein Sieger feststeht und dadurch der Spiel-Timer automatisch beendet wird.<br /></div>
 
@@ -597,17 +317,17 @@
 	</table>
 </div></div></div>
 
-<h2 class="wsite-content-title"><strong>Prim&auml;r und Sekund&auml;r</strong><br /></h2>
+<h2 class="ew-content-title"><strong>Prim&auml;r und Sekund&auml;r</strong><br /></h2>
 
 <div class="paragraph">&#8203;Manche Ausl&ouml;ser m&uuml;ssen nicht, k&ouml;nnen aber mit Effekten aktiviert werden, was interessant werden kann. Um den Rahmen nicht zu sprengen, hier nur ein Beispiel:<br /></div>
 
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:4.8260869565217%; padding:0 15px;">
+<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+	<table class="ew-multicol-table">
+		<tbody class="ew-multicol-tbody">
+			<tr class="ew-multicol-tr">
+				<td class="ew-multicol-col" style="width:4.8260869565217%; padding:0 15px;">
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/871634648.png" alt="Bild" style="width:100%;max-width:64px" />
 </a>
@@ -615,7 +335,7 @@
 </div></div>
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:95.173913043478%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col" style="width:95.173913043478%; padding:0 15px;">
 
 <div class="paragraph">&#8203;<strong>M&ouml;belzustand &auml;ndert sich&nbsp;</strong>- Alle Effekte, die den Zustand &auml;ndern, k&ouml;nnen den Ausl&ouml;ser aktivieren, wenn dasselbe M&ouml;bel ausgew&auml;hlt ist. Aber das &Auml;ndern muss nicht durch Wired geschehen.&nbsp;</div>
 
@@ -625,13 +345,13 @@
 	</table>
 </div></div></div>
 
-<div class="wsite-spacer" style="height:50px;"></div>
 
-<h2 class="wsite-content-title"><strong>Zur Info</strong><br /></h2>
+
+<h2 class="ew-content-title"><strong>Zur Info</strong><br /></h2>
 
 <div class="paragraph">&#8203;Ihr solltet&nbsp;<strong>nicht&nbsp;</strong>alles auswendig lernen! Diese Liste soll nur verdeutlichen, wie und wo&nbsp;<strong>Mehrstapelsysteme&nbsp;</strong>konkret auftreten oder auftreten k&ouml;nnen. Mit der Zeit wird vieles selbstst&auml;ndig erkennbar. Wenn ihr auf das eine oder andere trefft, wisst ihr nun, dass es diesen Artikel gibt, wo ihr nachschauen k&ouml;nnt, wenn etwas unklar ist. Das Einzige, was ihr von der Liste auswendig kennen solltet, ist&nbsp;<strong>Kollision</strong>. Das ist eine wichtige Grundlage. M&ouml;chtet ihr&nbsp;<strong>tiefer ins Wired einsteigen</strong>, sind die Signal-Wireds am besten daf&uuml;r geeignet.<br /></div>
 
-<h2 class="wsite-content-title"><strong>Praktische Nutzanwendung f&uuml;r Wired-Schleifen</strong><br /></h2>
+<h2 class="ew-content-title"><strong>Praktische Nutzanwendung f&uuml;r Wired-Schleifen</strong><br /></h2>
 
 <div class="paragraph">&#8203;Mit dem Wired-Verhalten, dass Stapeln sich gegenseitig ausl&ouml;sen/ausf&uuml;hren k&ouml;nnen (oder manchmal sogar m&uuml;ssen), ergibt sich die M&ouml;glichkeit, eine&nbsp;<strong>Reihe von Stapeln</strong>&nbsp;zu nutzen und sogar einen Stapel als Schleife zu verwenden. Um zu verstehen, wie das genau gemeint ist, gibt es nun eine praktische Anwendung dazu. Das Ziel besteht darin, ein&nbsp;<strong>W&uuml;rfelsystem&nbsp;</strong>einzustellen und eine Kugel entsprechend der gew&uuml;rfelten Augenzahl zu bewegen. Eine L&ouml;sung davon kann wie folgt aussehen (es gibt nat&uuml;rlich mehrere Varianten, dies zu l&ouml;sen):<br /></div>
 
@@ -639,7 +359,7 @@
 
 <div class="paragraph"><strong>Zugegebenerma&szlig;en ist das eine ziemlich fortgeschrittene Technik, aber es lohnt sich zu wissen, dass es Anwendungsf&auml;lle gibt, wenn man sich irgendwann besser mit Wireds auskennt. Nun zu den Details:</strong><br /></div>
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/published/image-66a6b6493b997.png" alt="Bild" style="width:593;max-width:100%" />
 </a>
@@ -648,7 +368,7 @@
 
 <div class="paragraph">&#8203;<strong>1. Stapel&nbsp;</strong>- Wird ausgel&ouml;st, sobald jemand den Schalter (rot markiert) verwendet. Mit dem Extra&nbsp;<em>Zuf&auml;lliger Effekt</em>&nbsp;wird nur einer der 6 Posi-Wireds (=&nbsp;<em>M&ouml;belst&uuml;ck nimmt Zustand und Position ein</em>) ausgef&uuml;hrt. Das andere Extra&nbsp;<em>Ausf&uuml;hrungslimit&nbsp;</em>ist auf eine Ausf&uuml;hrung pro&nbsp;<strong>3,5 Sekunden</strong>&nbsp;gesetzt, damit keiner den Schalter spammen kann. Wieso 3,5 Sekunden? Ganz einfach, w&uuml;rfelt man im h&ouml;chsten Fall eine 6, sind das 6 Bewegungen. Jede Bewegung dauert 0,5 Sekunden, was zusammen 3 Sekunden sind, und erst&nbsp;<strong>nach&nbsp;</strong>den 3 Sekunden - also 3,5 s - soll das n&auml;chste W&uuml;rfeln erlaubt werden. Die Posi-Effekte haben nicht nur alle eine andere Zahl vom Nummernbauklotz gespeichert, sondern auch die in blau markierten Farbw&uuml;rfeln. Dieses GIF zeigt es besser:<br /></div>
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/posi-einstellung-66a6c0502a998_orig.gif" alt="Bild" style="width:auto;max-width:100%" />
 </a>
@@ -661,7 +381,7 @@
 
 <div class="paragraph">&#8203;Vielleicht entsteht die Frage, warum wir nicht alles mit dem 2. Stapel einstellen und einen 3. brauchen. Der 2. Stapel dient als &Uuml;bergang bzw. Zeit&uuml;berbr&uuml;ckung. Zum Zeitpunkt des Hebelns (Schalter) befinden sich&nbsp;<strong>noch keine Farbw&uuml;rfel</strong>&nbsp;im Feld, sondern erst, wenn dies ausgef&uuml;hrt wurde. Aber der 2. Stapel l&ouml;st ja zeitgleich aus, wenn gehebelt wird. Somit kann der Stapel nicht detektieren, wie viele Farbw&uuml;rfel ausgesucht werden. Nach der Ausf&uuml;hrung des 2. Stapels beginnt der 3. Stapel auszuf&uuml;hren, und jetzt zu diesem Zeitpunkt sind die ausgesuchten Farbw&uuml;rfel an richtiger Stelle, um sie zu manipulieren. Damit h&auml;tten wir unsere erste Nutzanwendung zum Thema Weiterleitungen -&nbsp;<strong>Zeit&uuml;berbr&uuml;ckung</strong>.<br /></div>
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/2-stapel-66a7dbd7df7d0_orig.gif" alt="Bild" style="width:auto;max-width:100%" />
 </a>
@@ -674,7 +394,7 @@
 
 <div class="paragraph">Wir&nbsp;<strong>filtern&nbsp;</strong>das Ganze mit&nbsp;<em>Filter auf X M&ouml;bel</em>, weil der Selektor nicht alle als B&uuml;ndel gleichzeitig w&auml;hlen soll, sondern immer nur einen der W&uuml;rfel im Bereich. Der Grund daf&uuml;r ist, dass sonst nach einmal Ausl&ouml;sen alle auf einmal bewegt werden und es keine Schleife gibt. Der Stapel soll aber so oft ausl&ouml;sen, wie es Farbw&uuml;rfel gibt. Die&nbsp;<strong>Anzahl der Farbw&uuml;rfel entspricht ja der Augenzahl</strong>&nbsp;des eigentlichen W&uuml;rfels. Das bedeutet schlussendlich, wenn jeder Farbw&uuml;rfel einzeln zur&uuml;ckbewegt wird, wird so oft die Kugelbewegung ausgel&ouml;st, wie die Augenzahl anzeigt. Am Ende ben&ouml;tigen wir noch einen&nbsp;<strong>Stapel-Stopp</strong>, was immer durch Bedingungen gemacht wird. Sonst h&ouml;rt die Schleife nicht auf auszul&ouml;sen. Wir nutzen&nbsp;<em>Ausgew&auml;hlte Menge</em>&nbsp;und stellen ihn auf "H&ouml;her als 0" ein. Beachte: Die Quelle muss auf "M&ouml;bel vom Selektor nehmen" ausgew&auml;hlt sein! Die Schleife geht also so lang, bis es keine Farbw&uuml;rfel mehr im ausgew&auml;hlten Bereich gibt.&nbsp;<br /></div>
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/3-stapel-66aaac8ba1149_orig.gif" alt="Bild" style="width:auto;max-width:100%" />
 </a>
@@ -683,7 +403,7 @@
 
 <div class="paragraph">&#8203;Das&nbsp;<strong>Gesamtergebnis&nbsp;</strong>sieht so aus:<br /></div>
 
-<div><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
 <a>
 <img src="uploads/1/2/4/2/124287907/warfeln-ergebnis-66aab249de438_orig.gif" alt="Bild" style="width:auto;max-width:100%" />
 </a>
@@ -693,344 +413,27 @@
 <div class="paragraph">&#8203;Auch wenn dieser Artikel nicht leicht war, hilft es einem Anf&auml;nger, jeden&nbsp;<strong>Ausl&ouml;ser schneller zu erlernen</strong>, allein wenn ihm bekannt ist, dass manchmal mehr als ein Stapel gebraucht wird, um einen Ausl&ouml;ser testen zu k&ouml;nnen. Wenn das das einzige war, dass Du hiervon verstanden hast, ist das ein Riesenerfolg!&nbsp;<a href="bedeutung-der-ausloumlsequelle-im-wired-tool.html" target="_blank" rel="noopener noreferrer"><strong>Hier&nbsp;</strong></a>findest du einen Artikel, der &auml;hnlich ist (etwa 50 % ist gleich), aber aus einer anderen Perspektive geschrieben ist, in einem anderen Kontext. Es kann dir helfen, das Thema besser zu verstehen, wenn Du denkst, dass Du es definitiv besser verstehen musst/willst.<br /></div>
 			</div>
 		</div>
-      </div>
+  </article>
+</main>
 
-	</div>
-</div>
-
-</div>
-
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <img src="uploads/1/2/4/2/124287907/editor/logo-ew.gif" alt="">
+      <span>easy<span style="color:var(--brand)">WIRED</span></span>
     </div>
-
-    <div class="footer-wrap">
-        <div class="footer"><div class='wsite-elements wsite-footer'>
-<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
-<hr class="styled-hr" style="width:100%;"></hr>
-<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-<div class="wsite-spacer" style="height:212px;"></div>
-
-<div style="text-align:left;"><div style="height: 50px; overflow: hidden;"></div>
-<a class="wsite-button wsite-button-small wsite-button-normal" href="impressum-und-datenschutz.html" target="_blank" rel="noopener noreferrer">
-<span class="wsite-button-inner">Impressum und Datenschutz</span>
-</a>
-<div style="height: 10px; overflow: hidden;"></div></div>
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div>
-
-<div><div class="wsite-multicol"><div class="wsite-multicol-table-wrap" style="margin:0 -15px;">
-	<table class="wsite-multicol-table">
-		<tbody class="wsite-multicol-tbody">
-			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-					
-				</td>				<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
-
-<div class="wsite-spacer" style="height:50px;"></div>
-
-					
-				</td>			</tr>
-		</tbody>
-	</table>
-</div></div></div></div></div>
-    </div><!-- end footer-wrap -->
-  </div><!-- /.wrapper -->
-
-  <div id="navMobile" class="nav mobile-nav">
-    <a class="hamburger" aria-label="Menu" href="stapel-kette.html#"><span></span></a>
-    <ul class="wsite-menu-default">
-    		<li id="pg471481021238466717" class="wsite-menu-item-wrap">
-    			<a
-    						href="index.html"
-    				class="wsite-menu-item"
-    				>
-    				Start
-    			</a>
-    			
-    		</li>
-    		<li id="pg353481056182946901" class="wsite-menu-item-wrap">
-    			<a
-    				class="wsite-menu-item"
-    				>
-    				News
-    			</a>
-    			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-315380647657528846"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="easywired.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			easyWIRED
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-888689312710469406"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="update-liste.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Update Liste
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-429543127465747085"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="interview1.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Interview
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-521577762849119362"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="community-fragen.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Community-Fragen
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-777508253923537700"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-forschung.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired-Forschung
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-    		</li>
-    		<li id="pg610518997779451804" class="wsite-menu-item-wrap">
-    			<a
-    				class="wsite-menu-item"
-    				>
-    				Wireds Lernen
-    			</a>
-    			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-611825001942073367"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-artikel.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired-Artikel
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-992216504488925810"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-tool.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired-Tool
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-274370708171663620"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="kurztutorials.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Kurztutorials
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-415275827948832770"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="videotutorials.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Videotutorials
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-    		</li>
-    		<li id="pg291220463579520736" class="wsite-menu-item-wrap">
-    			<a
-    				class="wsite-menu-item"
-    				>
-    				Wired Szene
-    			</a>
-    			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-427394895994961127"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-career.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired Career
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-564752378331256339"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="wired-raumlume.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Wired R&auml;ume
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-    		</li>
-    		<li id="pg710986301557406832" class="wsite-menu-item-wrap">
-    			<a
-    				class="wsite-menu-item"
-    				>
-    				Tipps & Tricks
-    			</a>
-    			<div class="wsite-menu-wrap" style="display:none">
-	<ul class="wsite-menu">
-		<li id="wsite-nav-983928021238416269"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="commands.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Commands
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-796108120282899390"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="bodenlayout-editor.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Bodenlayout Editor
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-983694450225847092"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="afk-leveln.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			AFK-Leveln
-		</span>
-	</a>
-	
-</li>
-<li id="wsite-nav-740098670410080861"
-	class="wsite-menu-subitem-wrap "
-	>
-	<a
-				href="sonstiges.html"
-		class="wsite-menu-subitem"
-		>
-		<span class="wsite-menu-title">
-			Sonstiges
-		</span>
-	</a>
-	
-</li>
-
-	</ul>
-</div>
-
-    		</li>
-    		<li id="pg312351942173649279" class="wsite-menu-item-wrap">
-    			<a
-    						href="teammitglieder.html"
-    				class="wsite-menu-item"
-    				>
-    				Teammitglieder
-    			</a>
-    			
-    		</li>
-    		
-    </ul>
+    <div class="site-footer__meta">
+      Ein privates Habbo-Fanprojekt von Surab Link.<br>
+      <a href="impressum-und-datenschutz.html">Impressum &amp; Datenschutz</a>
+    </div>
   </div>
+  <div class="site-footer__legal">
+    © Sulake Oy. HABBO® und HABBO HOTEL® sind eingetragene Marken der Sulake Oy.
+    Diese Fansite ist nicht mit Sulake Oy verbunden.
+  </div>
+</footer>
 
-  <script type="text/javascript" src="files/theme/plugins.js"></script>
-  <script type="text/javascript" src="files/theme/custom.js"></script>
-    <div id="customer-accounts-app"></div>
-    <script src="assets/privacy-notice.js" defer></script>
+<script src="assets/app.js" defer></script>
+<script src="assets/privacy-notice.js" defer></script>
 </body>
 </html>
