@@ -1,0 +1,48 @@
+{
+  "summary": "Frontend-only layout regression testing of easyWIRED static site (python http.server on port 3000, served via preview URL). Focus: wired-tool.html and update-liste.html grids/nav, plus regression sweep on index/detail/YouTube-iframe/theme-toggle/variable-infos and 3 additional pages (interview1, commands, afk-sitze). All key requirements are met EXCEPT one deviation: mobile 390px shows the Weebly multicol grid stacked 1-tile-per-row instead of the spec-required ~2-per-row, because @media (max-width: 400px) in /app/assets/app.css sets .ew-multicol-col { min-width: 100% }. Everything else looks good: desktop grids render 5 tiles/row, no horizontal overflow on any tested page (desktop or mobile), no nested scroll containers, YouTube iframe is 720x405 (16:9 responsive), Update-News header and Wired Updates heading structure fixed, pill buttons compact, theme toggle works and dark mode has no overflow.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": ".ew-multicol-col mobile breakpoint in /app/assets/app.css (@media max-width:400px)",
+        "issue": "At 390px mobile viewport the icon-grid tiles collapse to 1 tile per row (192 tiles, all visualRows=1). Spec requires ~2 per row on mobile 390px. Rule '@media (max-width:400px){ .content .ew-multicol-col { min-width: 100% } }' overrides the 720px 2-column rule for anything <=400px, which is virtually every phone. Suggest lowering the breakpoint to ~360px or removing it and keeping only the 720px 50% rule.",
+        "selector": ".content .ew-multicol-col",
+        "priority": "MEDIUM"
+      },
+      {
+        "component": "index.html 'Was ist neu?' button",
+        "issue": "Stylistically inconsistent with the new compact pill buttons ('Zum Infocenter', 'Zum Raum 1/2/3' are ~114-136px x 34px, 13px font). 'Was ist neu?' still renders as a large blue legacy button. Not in original bug scope but visible on index; consider normalising for consistency.",
+        "selector": "a:has-text('Was ist neu?')",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Privacy notice banner (all pages)",
+        "issues": [
+          "The dismissible privacy banner covers ~180px of viewport height at the bottom on every page load and can obscure page content on shorter viewports. Consider making it a top-slim strip or auto-dismiss after N seconds. Not a blocker."
+        ]
+      }
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [
+    "In /app/assets/app.css around line 777, adjust the '@media (max-width: 400px) { .content .ew-multicol-col { min-width: 100% } }' rule so that the 2-columns-per-row layout is preserved at typical mobile widths (e.g., change breakpoint to max-width: 360px, or remove the rule so 50% from the 720px query keeps applying).",
+    "Optional: normalise the 'Was ist neu?' button on index.html to match the new pill-button style used for 'Zum Infocenter'.",
+    "Optional design polish: shrink or auto-dismiss the persistent privacy banner so it doesn't cover the lower ~180px of the viewport on every visit."
+  ],
+  "critical_code_review_comments": [
+    "app.css line ~777 mobile breakpoint is too aggressive (max-width:400px captures 390/393/412 devices) and undoes the intended 2-col mobile layout - see action item above.",
+    "Static assets: 830-line /app/assets/app.css is still manageable but is approaching the 700-line splitting threshold; consider separating legacy Weebly overrides (ew-*) into its own partial for maintainability.",
+    "Privacy banner overlay (from assets/privacy-notice.js) uses no data-testid on its close button, which forced the test to fall back to broad class/id heuristics for dismissal. Adding data-testid='privacy-notice-close' would help future automation.",
+    "Consider adding data-testid attributes on primary CTA buttons ('Zum Infocenter', 'Zum Raum 1/2/3', 'Was ist neu?') for stable e2e selectors."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "95%"},
+  "seed_data_creation": "None (static site).",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Base URL: https://4b9dbd39-b129-43fe-b732-6a26808cbdf9.preview.emergentagent.com. Static site served from /app. No /api. Verified pages: wired-tool.html, update-liste.html, index.html, wired-tool-user-tritt-auf-moumlbel.html, nr-1-erste-schritte.html, variable-infos---deutsch.html, interview1.html, commands.html, afk-sitze.html at both 1920x1080 and 390x844. Key selectors: [data-testid='nav-toggle'], [data-testid='theme-toggle']. Persistent privacy banner overlay must be dismissed (JS: document.querySelectorAll('[id*=privacy] button, [class*=privacy] button').forEach(b=>b.click())) or its close X clicked before testing content near the page bottom. Multicol markup: <table class='ew-multicol-table'> > tbody > <tr class='ew-multicol-tr'> > <td class='ew-multicol-col'>. Flexbox conversion works on desktop (5/4/3/2 tiles per row confirmed), fails to keep 2-per-row at 390px due to CSS breakpoint above.",
+  "rca of the issue": "Root cause of mobile 1-per-row: In /app/assets/app.css lines 777-781, the media query '@media (max-width: 400px) { .content .ew-multicol-col { min-width: 100% } }' overrides the earlier '@media (max-width: 720px) { .content .ew-multicol-col { min-width: calc(50% - 1px); flex-basis: auto } }' (lines 768-776). Because 390 <= 400 <= 720, the more specific/later query wins and forces full-width. Reproduction: open /wired-tool.html at 390px width and inspect .ew-multicol-col computed min-width -> 100%. Mitigation: change the second breakpoint to `@media (max-width: 360px)` (or remove it entirely), so the 720px 50% rule applies at 390px and tiles wrap 2-per-row as specified."
+}

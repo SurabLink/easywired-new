@@ -129,6 +129,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Arial, sans-serif;
   font-size: 16px;
@@ -414,15 +415,19 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
     left: 0;
     right: 0;
     background: var(--bg-elevated);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 20px 24px;
-    box-shadow: var(--shadow-md);
+    border-bottom: 0;
+    padding: 0 20px;
+    box-shadow: none;
     max-height: 0;
-    overflow-y: auto;
-    transition: max-height var(--t-med) ease;
+    overflow: hidden;
+    transition: max-height var(--t-med) ease, padding var(--t-med) ease;
   }
   .site-nav[data-open="true"] {
     max-height: calc(100vh - var(--header-h));
+    padding: 12px 20px 24px;
+    overflow-y: auto;
+    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid var(--border);
   }
   .site-nav__list {
     flex-direction: column;
@@ -517,6 +522,7 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
   font-size: 16px;
   line-height: 1.75;
   color: var(--text);
+  overflow-wrap: break-word;
 }
 
 .content h1,
@@ -572,15 +578,29 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
 .content .ew-button,
 .content .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 10px 18px;
   background: var(--brand);
   color: #fff;
   border-radius: var(--radius);
   font-weight: 600;
+  font-size: 14px;
+  line-height: 1.4;
   text-decoration: none;
   transition: background-color var(--t-fast) ease, transform var(--t-fast) ease;
   border: 0;
   margin: 6px 4px;
+}
+.content .ew-button-small {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+.content .ew-button-large {
+  padding: 12px 22px;
+  font-size: 15px;
+}
+.content .ew-button font,
+.content .ew-button span {
+  font-size: inherit !important;
 }
 .content .ew-button:hover,
 .content .btn:hover {
@@ -693,9 +713,7 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
 .content .paragraph-block,
 .content .container,
 .content .ew-multicol,
-.content .ew-multicol-col,
-.content .ew-multicol-content,
-.content .ew-multicol-table {
+.content .ew-multicol-content {
   display: block;
   padding: 0;
   margin: 0;
@@ -705,11 +723,97 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
   width: auto;
 }
 
-.content .ew-multicol-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
+/* ---------- Weebly Multicol → Flexbox ----------------------------------
+   Das alte Weebly-Markup nutzt <table class="ew-multicol-table"> mit
+   <td>-Spalten (inline width in %). Wir lösen die Tabellen-Anzeige auf
+   und bauen jede Zeile als Flex-Container nach. Die Inline-Prozentbreiten
+   wirken dabei als flex-basis, sodass das ursprüngliche Spaltenverhältnis
+   erhalten bleibt und auf Mobilgeräten sauber umbricht. */
+.content .ew-multicol {
   margin: 16px 0;
+}
+.content .ew-multicol-table-wrap {
+  margin: 0 !important;
+}
+.content .ew-multicol-table,
+.content .ew-multicol-tbody {
+  display: block;
+  width: 100%;
+  border-collapse: collapse;
+}
+.content .ew-multicol-tr {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.content .ew-multicol-col {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Bild-Kacheln in den Grids: kompakte Abstände, zentrierte Captions */
+.content .ew-multicol img {
+  margin: 8px auto;
+}
+.content .ew-multicol .ew-image {
+  text-align: center;
+}
+.content .ew-multicol .ew-image > div {
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .content .ew-multicol-tr {
+    justify-content: center;
+  }
+  .content .ew-multicol-col {
+    min-width: calc(50% - 1px);
+    flex-basis: auto;
+  }
+}
+@media (max-width: 400px) {
+  .content .ew-multicol-col {
+    min-width: 100%;
+  }
+}
+
+/* Legacy <font size="…"> tags: riesige Browser-Defaults (48px+) auf ein
+   vernünftiges, relatives Maß bringen */
+.content font[size="7"] { font-size: 1.5em; }
+.content font[size="6"] { font-size: 1.3em; }
+.content font[size="5"] { font-size: 1.15em; }
+.content font[size="4"] { font-size: 1em; }
+
+/* Führende/abschließende <br> in Überschriften erzeugen leere Zeilen und
+   optisch "verrutschte" Titel — ausblenden */
+.content :is(h1, h2, h3, h4) br:first-child,
+.content :is(h1, h2, h3, h4) br:last-child,
+.content :is(h1, h2, h3, h4) :is(strong, font, span) br:first-child,
+.content :is(h1, h2, h3, h4) :is(strong, font, span) br:last-child,
+.content .paragraph > br:first-child {
+  display: none;
+}
+
+/* Responsive Einbettungen (YouTube etc.) */
+.content iframe {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin: 20px auto;
+  border: 0;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* Weebly custom-HTML Blöcke: nie eigene Scrollbars erzeugen */
+.content .wcustomhtml {
+  overflow: visible !important;
+  max-width: 100%;
 }
 
 /* Font tags that Weebly used inline — inherit from theme */
