@@ -35,6 +35,7 @@ Legacy-Weebly-Markup: `<table class="ew-multicol-table">` mit `<td>`-Spalten (In
 
 ## Bugfixes nach Deployment-Check
 - [x] index.html: Abgeschnittener Button "Zum Selektor Experiments Lab" — Ursache: nicht geschlossene Spacer-Divs (height:10px, overflow:hidden) umschlossen den Button; Markup repariert inkl. fehlender Multicol-Wrapper-Schließtags (08.06.2026)
+- [x] Header-Breakpoint von 900px auf 1180px erhöht: Zwischen 900–1180px überlappte die Navigation Logo und Header-Icons; jetzt greift dort das Hamburger-Menü (08.06.2026)
 
 ## Backlog / P2
 - Optional: Privacy-Banner schlanker machen (deckt ~180px am unteren Rand bis zum Schließen)

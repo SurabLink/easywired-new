@@ -405,7 +405,7 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
 }
 
 /* ---------- Mobile nav -------------------------------------------------- */
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
   .nav-toggle {
     display: inline-flex;
   }
