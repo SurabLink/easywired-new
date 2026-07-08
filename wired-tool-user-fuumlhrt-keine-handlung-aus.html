@@ -16,18 +16,7 @@
 <link rel="icon" href="uploads/1/2/4/2/124287907/editor/logo-ew.gif">
 <link rel="stylesheet" href="assets/app.css">
 <link rel="stylesheet" href="assets/privacy-notice.css">
-<script>
-  // Frühestmögliches Anwenden des gespeicherten Themes, um "Flash of Wrong
-  // Theme" zu vermeiden. Ausführlicher Toggle-Code in assets/app.js.
-  (function () {
-    try {
-      var t = localStorage.getItem('ew-theme');
-      if (t === 'light' || t === 'dark') {
-        document.documentElement.setAttribute('data-theme', t);
-      }
-    } catch (e) {}
-  })();
-</script>
+<script src="assets/theme-init.js"></script>
 </head>
 <body>
 
