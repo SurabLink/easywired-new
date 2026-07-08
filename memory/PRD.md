@@ -33,6 +33,9 @@ Legacy-Weebly-Markup: `<table class="ew-multicol-table">` mit `<td>`-Spalten (In
 - [x] Frontend-Start auf Node-basierten Static-Server umgestellt: `serve /app -l 3000` (+ /app/serve.json: cleanUrls off, kein Directory-Listing, Root-Rewrite auf index.html)
 - [x] Deployment-Agent-Check: PASS mit einer Warnung (MONGO_URL/DB_NAME in backend/.env ungenutzt — bewusst belassen, Plattform-Konvention)
 
+## Bugfixes nach Deployment-Check
+- [x] index.html: Abgeschnittener Button "Zum Selektor Experiments Lab" — Ursache: nicht geschlossene Spacer-Divs (height:10px, overflow:hidden) umschlossen den Button; Markup repariert inkl. fehlender Multicol-Wrapper-Schließtags (08.06.2026)
+
 ## Backlog / P2
 - Optional: Privacy-Banner schlanker machen (deckt ~180px am unteren Rand bis zum Schließen)
 - Optional: Grafik-Button "Was ist neu?" (PNG) durch echten HTML-Button ersetzen
