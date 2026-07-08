@@ -22,6 +22,7 @@ Content 1:1 erhalten, Navigation funktioniert.
 import re
 import json
 import html
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path("/app/easywired-new")
@@ -29,33 +30,28 @@ ROOT = Path("/app/easywired-new")
 # ---------------------------------------------------------------------------
 # 1. Menü aus index.html einmalig parsen
 # ---------------------------------------------------------------------------
-MENU_ITEMS = None
-
-def load_menu():
-    global MENU_ITEMS
-    if MENU_ITEMS is not None:
-        return MENU_ITEMS
+@lru_cache(maxsize=1)
+def load_menu() -> tuple:
     text = (ROOT / "index.html").read_text(encoding="utf-8", errors="ignore")
     m = re.search(r"initPublishedFlyoutMenus\(\s*(\[.*?\])\s*,", text, re.DOTALL)
     if not m:
-        MENU_ITEMS = []
-        return MENU_ITEMS
+        return ()
     try:
-        MENU_ITEMS = json.loads(m.group(1))
+        menu_items = json.loads(m.group(1))
     except Exception:
-        MENU_ITEMS = []
+        menu_items = []
     # Kontakt-Einträge sind bereits durch remove_kontakt.py entfernt worden.
     # Zusätzlich manuell "Impressum & Datenschutz" ins Menü aufnehmen, damit
     # er im Header sichtbar wird — aber nur, wenn nicht bereits vorhanden.
-    if not any(i.get("url") == "impressum-und-datenschutz.html" for i in MENU_ITEMS):
-        MENU_ITEMS.append({
+    if not any(i.get("url") == "impressum-und-datenschutz.html" for i in menu_items):
+        menu_items.append({
             "title": "Impressum",
             "url": "impressum-und-datenschutz.html",
         })
-    return MENU_ITEMS
+    return tuple(menu_items)
 
 
-def render_nav_items():
+def render_nav_items() -> str:
     parts = []
     for item in load_menu():
         title = item.get("title", "")
@@ -200,7 +196,7 @@ def extract_wsite_content(text):
     return text[tag_end:i]
 
 
-def extract_title(text):
+def extract_title(text: str) -> str:
     m = re.search(r"<title>([^<]+)</title>", text, re.IGNORECASE)
     if not m:
         return "easyWIRED"
@@ -210,7 +206,7 @@ def extract_title(text):
     return t or "easyWIRED"
 
 
-def extract_og_image(text):
+def extract_og_image(text: str) -> str:
     m = re.search(
         r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
         text,
@@ -221,7 +217,7 @@ def extract_og_image(text):
     return "uploads/1/2/4/2/124287907/editor/logo-ew.gif"
 
 
-def extract_description(text):
+def extract_description(text: str) -> str:
     m = re.search(
         r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']+)["\']',
         text,
@@ -264,7 +260,7 @@ CONTENT_ATTR_STRIP = [
 ]
 
 
-def clean_content(html_text):
+def clean_content(html_text: str) -> str:
     """Remove Weebly-specific junk from extracted content while preserving
     the actual copy, images, links, videos and buttons."""
     text = html_text
@@ -351,3 +347,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

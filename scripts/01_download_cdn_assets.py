@@ -22,15 +22,15 @@ initial = {
 
 URL_RE = re.compile(r'url\(\s*["\']?([^"\')\s]+)["\']?\s*\)', re.IGNORECASE)
 
-downloaded = set()
-queue = []
+downloaded: set[str] = set()
+queue: list[tuple[str, str]] = []
 
-def enqueue(local_path, source_url):
+def enqueue(local_path: str, source_url: str) -> None:
     if local_path in downloaded:
         return
     queue.append((local_path, source_url))
 
-def download(url, local_path):
+def download(url: str, local_path: str) -> bool:
     full = os.path.join(CDN_BASE, local_path)
     if os.path.exists(full):
         return True
@@ -46,40 +46,43 @@ def download(url, local_path):
         print(f"  FAIL {url}: {e}", file=sys.stderr)
         return False
 
-def process_css(local_path, source_url):
+def read_css(local_path: str) -> str | None:
     full = os.path.join(CDN_BASE, local_path)
-    if not os.path.exists(full):
-        return
-    if not full.endswith(('.css',)):
-        return
+    if not full.endswith(".css") or not os.path.exists(full):
+        return None
     try:
         with open(full, "r", encoding="utf-8", errors="ignore") as f:
-            content = f.read()
+            return f.read()
     except Exception:
+        return None
+
+def resolve_ref(ref: str, source_url: str, base: str) -> str | None:
+    """Resolve a url(...) reference from CSS to an absolute URL, or None."""
+    if ref.startswith(("data:", "#", "http://www.w3.org")):
+        return None
+    if ref.startswith("//"):
+        return "https:" + ref
+    if ref.startswith(("http://", "https://")):
+        return ref
+    if ref.startswith("/"):
+        parsed = urllib.parse.urlparse(source_url)
+        return f"{parsed.scheme}://{parsed.netloc}{ref}"
+    return urllib.parse.urljoin(base, ref)
+
+def process_css(local_path: str, source_url: str) -> None:
+    content = read_css(local_path)
+    if content is None:
         return
     base = source_url.rsplit("/", 1)[0] + "/"
     for m in URL_RE.finditer(content):
-        ref = m.group(1).strip()
-        if ref.startswith(("data:", "#", "http://www.w3.org")):
+        abs_url = resolve_ref(m.group(1).strip(), source_url, base)
+        if abs_url is None:
             continue
-        # Resolve URL
-        if ref.startswith("//"):
-            abs_url = "https:" + ref
-        elif ref.startswith("http://") or ref.startswith("https://"):
-            abs_url = ref
-        elif ref.startswith("/"):
-            # Absolute path on the CDN host
-            parsed = urllib.parse.urlparse(source_url)
-            abs_url = f"{parsed.scheme}://{parsed.netloc}{ref}"
-        else:
-            abs_url = urllib.parse.urljoin(base, ref)
-        # Strip query
         abs_no_query = abs_url.split("?")[0].split("#")[0]
         parsed = urllib.parse.urlparse(abs_no_query)
         if not parsed.netloc:
             continue
-        new_local = parsed.netloc + parsed.path
-        enqueue(new_local, abs_no_query)
+        enqueue(parsed.netloc + parsed.path, abs_no_query)
 
 # Seed
 for lp, su in initial.items():

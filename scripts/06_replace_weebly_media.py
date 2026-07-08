@@ -3,13 +3,33 @@
 with native <video> tags pointing to local media."""
 import re
 import urllib.parse
+from collections.abc import Iterator
 from pathlib import Path
 
 ROOT = Path("/app/easywired-new")
 MEDIA_DIR = "media/weebly"
 
 
-def find_video_blocks(text: str):
+def _block_end(text: str, start: int) -> int:
+    """Return the index just past the balanced closing </div> of the block
+    starting at `start`, or -1 if unbalanced."""
+    depth = 0
+    j = start
+    while j < len(text):
+        if text[j:j+4] == "<div":
+            depth += 1
+            j += 4
+        elif text[j:j+6] == "</div>":
+            depth -= 1
+            j += 6
+            if depth == 0:
+                return j
+        else:
+            j += 1
+    return -1
+
+
+def find_video_blocks(text: str) -> Iterator[tuple[int, int, str]]:
     """Yield (start, end, full_block_text) for each top-level
     <div class="wsite-video">...</div> block (matched by div depth)."""
     start = 0
@@ -17,23 +37,11 @@ def find_video_blocks(text: str):
         i = text.find('<div class="wsite-video">', start)
         if i < 0:
             return
-        depth = 0
-        j = i
-        while j < len(text):
-            if text[j:j+4] == "<div":
-                depth += 1
-                j += 4
-            elif text[j:j+6] == "</div>":
-                depth -= 1
-                j += 6
-                if depth == 0:
-                    yield (i, j, text[i:j])
-                    start = j
-                    break
-            else:
-                j += 1
-        else:
+        end = _block_end(text, i)
+        if end < 0:
             return
+        yield (i, end, text[i:end])
+        start = end
 
 
 VIDEO_FILENAME_RE = re.compile(r'video=b/124287907-566137816592563923/([^&"\']+\.mp4)')

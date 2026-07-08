@@ -18,7 +18,7 @@ def rel_path_to_cdn_assets(html_file: Path) -> str:
     depth = len(html_file.relative_to(ROOT).parts) - 1
     return ("../" * depth) + "cdn-assets"
 
-def rewrite_html(path: Path):
+def rewrite_html(path: Path) -> bool:
     try:
         text = path.read_text(encoding="utf-8")
     except Exception as e:
@@ -58,34 +58,13 @@ def rewrite_html(path: Path):
         return True
     return False
 
-def rewrite_css(path: Path):
-    """CSS files in cdn-assets reference paths like /images/... or relative ../"""
-    # We leave the CSS untouched IF the references resolve correctly via the
-    # downloaded folder structure. The original CSS uses paths like:
-    #   url(/images/old/fancybox/blank.gif)   <- absolute on host
-    #   url(../sprites/...)                   <- relative to css path
-    # When CSS is loaded as cdn-assets/cdn11.editmysite.com/css/sites.css,
-    # the browser resolves /images/... to /images/ on OUR host, which won't
-    # work. We must rewrite absolute-on-host paths to be relative to the CSS.
-    try:
-        text = path.read_text(encoding="utf-8", errors="ignore")
-    except Exception:
-        return False
-    orig = text
-
-    # Find host from path
-    rel = path.relative_to(ROOT / "cdn-assets")
-    host = rel.parts[0]  # cdn11.editmysite.com or cdn2.editmysite.com
-    # Depth of CSS file inside host
-    depth_inside_host = len(rel.parts) - 1  # parts after host
-    up_to_host = "../" * (depth_inside_host - 1) if depth_inside_host > 0 else ""
-
-    # Replace url(/path) with url(<up_to_host>path)  -> staying within same host
-    def repl_abs(m):
-        path_ref = m.group(1)
-        # strip query/fragment
-        clean = path_ref.split("?", 1)[0].split("#", 1)[0]
-        return f'url({up_to_host}{clean.lstrip("/")}'+ (m.group(2) if m.group(2) else "") + ')'
+def _rewrite_abs_host_urls(text: str, up_to_host: str) -> str:
+    """Rewrite url(/path) references (quoted and unquoted) to be relative to
+    the CSS file, staying within the same CDN host folder."""
+    def repl_abs(m: re.Match) -> str:
+        clean = m.group(1).split("?", 1)[0].split("#", 1)[0]
+        suffix = m.group(2) if m.group(2) else ""
+        return f'url({up_to_host}{clean.lstrip("/")}' + suffix + ')'
 
     # url(/...) form (no quotes)
     text = re.sub(
@@ -93,31 +72,29 @@ def rewrite_css(path: Path):
         repl_abs,
         text,
     )
-    # url("/...") and url('/...')
-    def repl_quoted(m):
+
+    def repl_quoted(m: re.Match) -> str:
         quote = m.group(1)
-        path_ref = m.group(2)
+        clean = m.group(2).split("?", 1)[0].split("#", 1)[0]
         suffix = m.group(3) or ""
-        clean = path_ref.split("?", 1)[0].split("#", 1)[0]
         return f'url({quote}{up_to_host}{clean.lstrip("/")}{suffix}{quote})'
 
-    text = re.sub(
+    # url("/...") and url('/...')
+    return re.sub(
         r'url\(\s*(["\'])(/[^"\']+?)([?#][^"\']*)?\1\s*\)',
         repl_quoted,
         text,
     )
 
-    # Replace //cdnX.editmysite.com/path with relative path within cdn-assets
+
+def _rewrite_cross_host_urls(text: str, depth_inside_host: int) -> str:
+    """Rewrite url(//cdnX.editmysite.com/path) to a relative path that
+    navigates via cdn-assets/ into the other host's folder."""
+    up_to_cdn_assets = "../" * depth_inside_host  # back to host root
     for h in CDN_HOSTS:
-        # url(//host/path)
-        def repl_proto_rel(m):
+        def repl_proto_rel(m: re.Match) -> str:
             quote = m.group(1) or ""
-            full_path = m.group(2)
-            clean = full_path.split("?", 1)[0].split("#", 1)[0]
-            # We need to navigate from current file to ../<h>/<clean>
-            # current file at host/<sub>, target at <h>/<clean>
-            # so: go up to cdn-assets, then into h
-            up_to_cdn_assets = "../" * depth_inside_host  # back to host root
+            clean = m.group(2).split("?", 1)[0].split("#", 1)[0]
             target = f"../{h}{clean}"
             return f"url({quote}{up_to_cdn_assets}{target}{quote})"
 
@@ -126,6 +103,31 @@ def rewrite_css(path: Path):
             repl_proto_rel,
             text,
         )
+    return text
+
+
+def rewrite_css(path: Path) -> bool:
+    """CSS files in cdn-assets reference paths like /images/... or relative ../
+
+    The original CSS uses paths like:
+      url(/images/old/fancybox/blank.gif)   <- absolute on host
+      url(../sprites/...)                   <- relative to css path
+    When CSS is loaded as cdn-assets/cdn11.editmysite.com/css/sites.css,
+    the browser resolves /images/... to /images/ on OUR host, which won't
+    work. We must rewrite absolute-on-host paths to be relative to the CSS.
+    """
+    try:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
+        return False
+    orig = text
+
+    rel = path.relative_to(ROOT / "cdn-assets")
+    depth_inside_host = len(rel.parts) - 1  # parts after host
+    up_to_host = "../" * (depth_inside_host - 1) if depth_inside_host > 0 else ""
+
+    text = _rewrite_abs_host_urls(text, up_to_host)
+    text = _rewrite_cross_host_urls(text, depth_inside_host)
 
     if text != orig:
         path.write_text(text, encoding="utf-8")
