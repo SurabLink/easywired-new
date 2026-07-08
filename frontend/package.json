@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "python3 -m http.server 3000 --bind 0.0.0.0 --directory /app"
+    "start": "serve /app -l 3000 --no-clipboard --no-port-switching"
+  },
+  "dependencies": {
+    "serve": "^14.2.6"
   }
 }
