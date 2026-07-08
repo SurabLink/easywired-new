@@ -28,6 +28,11 @@ Legacy-Weebly-Markup: `<table class="ew-multicol-table">` mit `<td>`-Spalten (In
 - [x] update-liste.html: "Wired Updates"-h2 von Fließtext getrennt
 - [x] Testing-Agent-Lauf (iteration_1.json): 95% pass; gemeldeter Mobile-Breakpoint-Bug (1 statt 2 Kacheln/Reihe bei 390px) behoben und verifiziert
 
+## Deployment-Readiness (08.06.2026)
+- [x] Minimales FastAPI-Backend unter /app/backend (Health-Endpoint /api/), da Supervisor-Config (readonly) ein Backend erwartet
+- [x] Frontend-Start auf Node-basierten Static-Server umgestellt: `serve /app -l 3000` (+ /app/serve.json: cleanUrls off, kein Directory-Listing, Root-Rewrite auf index.html)
+- [x] Deployment-Agent-Check: PASS mit einer Warnung (MONGO_URL/DB_NAME in backend/.env ungenutzt — bewusst belassen, Plattform-Konvention)
+
 ## Backlog / P2
 - Optional: Privacy-Banner schlanker machen (deckt ~180px am unteren Rand bis zum Schließen)
 - Optional: Grafik-Button "Was ist neu?" (PNG) durch echten HTML-Button ersetzen
