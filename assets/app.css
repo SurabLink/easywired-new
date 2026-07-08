@@ -774,11 +774,6 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
     flex-basis: auto;
   }
 }
-@media (max-width: 400px) {
-  .content .ew-multicol-col {
-    min-width: 100%;
-  }
-}
 
 /* Legacy <font size="…"> tags: riesige Browser-Defaults (48px+) auf ein
    vernünftiges, relatives Maß bringen */
