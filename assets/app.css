@@ -828,17 +828,18 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
 
 /* Legacy <font size="…"> tags: riesige Browser-Defaults (48px+) auf ein
    vernünftiges, relatives Maß bringen */
-.content font[size="7"] { font-size: 1.5em; }
-.content font[size="6"] { font-size: 1.3em; }
-.content font[size="5"] { font-size: 1.15em; }
-.content font[size="4"] { font-size: 1em; }
+.content .legacy-font-size-7 { font-size: 1.5em; }
+.content .legacy-font-size-6 { font-size: 1.3em; }
+.content .legacy-font-size-5 { font-size: 1.15em; }
+.content .legacy-font-size-4,
+.content .legacy-font-size-3 { font-size: 1em; }
 
 /* Führende/abschließende <br> in Überschriften erzeugen leere Zeilen und
    optisch "verrutschte" Titel — ausblenden */
 .content :is(h1, h2, h3, h4) br:first-child,
 .content :is(h1, h2, h3, h4) br:last-child,
-.content :is(h1, h2, h3, h4) :is(strong, font, span) br:first-child,
-.content :is(h1, h2, h3, h4) :is(strong, font, span) br:last-child,
+.content :is(h1, h2, h3, h4) :is(strong, .legacy-font, span) br:first-child,
+.content :is(h1, h2, h3, h4) :is(strong, .legacy-font, span) br:last-child,
 .content .paragraph > br:first-child {
   display: none;
 }
@@ -863,14 +864,14 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
 }
 
 /* Font tags that Weebly used inline — inherit from theme */
-.content font {
+.content .legacy-font {
   color: inherit !important;
 }
-html[data-theme="dark"] .content font {
+html[data-theme="dark"] .content .legacy-font {
   color: inherit !important;
 }
-html[data-theme="dark"] .content h1 font,
-html[data-theme="dark"] .content h2 font,
-html[data-theme="dark"] .content h3 font {
+html[data-theme="dark"] .content h1 .legacy-font,
+html[data-theme="dark"] .content h2 .legacy-font,
+html[data-theme="dark"] .content h3 .legacy-font {
   color: var(--brand) !important;
 }
