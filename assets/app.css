@@ -468,6 +468,11 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
     padding: 10px 14px;
     font-size: 13.5px;
   }
+
+  /* nav .site-nav__caret {
+    display: none;
+  } */
+
 }
 
 /* Touch-only devices (no hover): fall back to tap-toggle even on wide viewports */

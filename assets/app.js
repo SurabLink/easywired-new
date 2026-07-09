@@ -127,24 +127,25 @@
       trigger.setAttribute("aria-haspopup", "true");
       trigger.setAttribute("aria-expanded", "false");
 
-      // In der Mobile-Navigation (Hamburger) UND auf Touch-Devices bleibt
-      // der erste Klick beim Toggle stehen. Auf Desktop mit Maus lassen
-      // wir den Klick normal durchgehen (keine preventDefault).
+      // In der Mobile-Navigation (Hamburger) UND auf Touch-Devices soll
+      // jeder Tap den Bereich nur auf-/zuklappen.
       trigger.addEventListener("click", function (evt) {
         var inMobileNav =
-          window.matchMedia("(max-width: 900px)").matches;
+          window.matchMedia("(max-width: 1180px)").matches;
         if (!inMobileNav && !isCoarse) {
           return; // Desktop-Maus: einfach dem Link folgen
         }
+        evt.preventDefault();
+        evt.stopPropagation();
         var open = item.getAttribute("data-open") === "true";
-        if (!open) {
-          evt.preventDefault();
-          evt.stopPropagation();
+        if (open) {
+          item.setAttribute("data-open", "false");
+          trigger.setAttribute("aria-expanded", "false");
+        } else {
           closeAll(item);
           item.setAttribute("data-open", "true");
           trigger.setAttribute("aria-expanded", "true");
         }
-        // Zweiter Tap: nichts weiter tun — Link folgt normal
       });
     });
 
