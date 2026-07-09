@@ -299,7 +299,6 @@ hr {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translate(-50%, 0);
   transition-delay: 0s;
 }
 
