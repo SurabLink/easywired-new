@@ -52,3 +52,13 @@ Legacy-Weebly-Markup: `<table class="ew-multicol-table">` mit `<td>`-Spalten (In
 - [x] Mobile <600px: flex-wrap, Titelspalte flex 1 1 100% + order:-1 → Überschrift oben, Bilder symmetrisch darunter
 - [x] Verifiziert (Playwright-Metriken): 6 Steckbriefe Desktop (96px/96px, gap 28/28, midDiff 0) + Mobile 390px (60×48/60×48, kein Overflow); Phase-4-Check: andere ew-multicol-Tabellen unberührt
 - Hinweis: :has() ohne Fallback (User-Entscheidung: nur aktuelle Browser)
+
+## Implementiert (09.07.2026) — CSS-Auslagerung (Inline & <style> → externe Dateien)
+- [x] Aktueller Stand von GitHub (042a6fd) gesynct; reine Vanilla HTML/CSS/JS-Site (kein Framework)
+- [x] Scan: 184 HTML-Seiten, 8534 Inline-style-Attribute (nur 461 einzigartige Werte), 1 <style>-Block (404.html)
+- [x] assets/legacy-inline.css: jede einzigartige Inline-Deklaration als dedupe Klasse .iw-001….iw-461 (nach Häufigkeit), Deklarationen mit !important zur Erhaltung der Inline-Priorität ggü. app.css
+- [x] Alle 8534 style="…"-Attribute durch Klassen ersetzt (Merge in bestehende class-Attribute), HTML-Entities unescaped, paren-sicheres Splitten
+- [x] <style>-Block aus 404.html → assets/404.css
+- [x] Link-Einbindung: legacy-inline.css nach app.css in 183 Seiten, 404.css in 404.html
+- [x] Skript: scripts/extract_inline_css.py (idempotent nutzbar)
+- [x] Verifikation: FNV-Hash aller berechneten Styles pro Element vor/nachher identisch auf 5 Seiten (index, wired-tool [887 Elemente], update-liste, variable-infos, Steckbrief) → 0 visuelle Änderung; 0 verbleibende style=/style-Tags

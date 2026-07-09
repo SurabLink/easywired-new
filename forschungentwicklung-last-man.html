@@ -15,6 +15,7 @@
 <meta property="og:image" content="./uploads/1/2/4/2/124287907/logo-ew_52.gif">
 <link rel="icon" href="uploads/1/2/4/2/124287907/editor/logo-ew.gif">
 <link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="assets/legacy-inline.css">
 <link rel="stylesheet" href="assets/privacy-notice.css">
 <script src="assets/theme-init.js"></script>
 </head>
@@ -99,23 +100,23 @@
     <h1 class="page-hero__title">Forschung&amp;Entwicklung: Last Man</h1>
   </header>
   <article class="content" data-testid="page-content">
-<div class="ew-section ew-body-section ew-background-253" style="height: auto;" >
+<div class="ew-section ew-body-section ew-background-253 iw-011" >
 		<div class="ew-section-elements">
-				<div><div class="ew-multicol"><div class="ew-multicol-table-wrap" style="margin:0 -15px;">
+				<div><div class="ew-multicol"><div class="ew-multicol-table-wrap iw-003">
 	<table class="ew-multicol-table">
 		<tbody class="ew-multicol-tbody">
 			<tr class="ew-multicol-tr">
-				<td class="ew-multicol-col" style="width:6.8695652173913%; padding:0 15px;">
+				<td class="ew-multicol-col iw-012">
 
-<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<div><div class="ew-image ew-image-border-none  iw-006">
 <a>
-<img src="uploads/1/2/4/2/124287907/logo-ew_52.gif" alt="Bild" style="width:auto;max-width:100%" />
+<img class="iw-002" src="uploads/1/2/4/2/124287907/logo-ew_52.gif" alt="Bild" />
 </a>
-<div style="display:block;font-size:90%"></div>
+<div class="iw-001"></div>
 </div></div>
 
 					
-				</td>				<td class="ew-multicol-col" style="width:93.130434782609%; padding:0 15px;">
+				</td>				<td class="ew-multicol-col iw-013">
 
 <h2 class="ew-content-title"><br />&#8203;Forschung&amp;Entwicklung</h2>
 
@@ -125,35 +126,35 @@
 	</table>
 </div></div></div>
 
-<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
-<hr class="styled-hr" style="width:100%;"></hr>
-<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+<div><div class="iw-005"></div>
+<hr class="styled-hr iw-007"></hr>
+<div class="iw-005"></div></div>
 
 <h2 class="ew-content-title"><br /><font size="6">&#8203;Last Man</font><br /><span><font color="#24678d" size="4">Entwickelt von: surab1996</font></span></h2>
 
 <div class="paragraph"><strong>Neue und zugleich verbesserte Methode f&uuml;r die Berechnung des letzten Users in einem Spiel. <br /></strong>Die "Last Man" Einstellungen waren bisher immer relativ Buganf&auml;llig. Durch ein Gleichzeitigkeitsproblem, welches manchmal Effekte doppelt ausf&uuml;hrt, entstanden falsche Berechnungen. So wurden Leuchtb&auml;lle zweifach bewegt oder Farbfliesen doppelt umgeschalten. Um das zu verhindern wird der Weg der Leuchtb&auml;lle verk&uuml;rzt, sodass sie sich immer H&ouml;chstens ein Feld fort bewegen k&ouml;nnen.</div>
 
-<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<div><div class="ew-image ew-image-border-none  iw-004">
 <a>
-<img src="uploads/1/2/4/2/124287907/published/737272545.png" alt="Bild" style="width:auto;max-width:100%" />
+<img class="iw-002" src="uploads/1/2/4/2/124287907/published/737272545.png" alt="Bild" />
 </a>
-<div style="display:block;font-size:90%">Vollständiger Aufbau eines "Last Man" Systems</div>
+<div class="iw-001">Vollständiger Aufbau eines "Last Man" Systems</div>
 </div></div>
 
 <div class="paragraph"><br /><span>&#8203;Das Prinzip ist sehr spektakul&auml;r. Befinden sich 2 oder mehr User im Spielfeld, bewegen sich die Leuchtb&auml;lle parallel zueinander fort. Ist jedoch nur noch einer &uuml;brig, &auml;ndert sich die Bewegung der Leuchtb&auml;lle fast blitzartig, nachdem der 2. User verschwunden war, dann asynchron fort. Die Anzahl der diagonalen-Positionen werden gez&auml;hlt. Kommt eine signifikante Anzahl zusammen, wird dies als "letzter User" detektiert. Es k&ouml;nnen aber immer noch Fehler auftreten. Unvorhergesehene Einfl&uuml;sse, die nach einer ungewissen Zeit auftreten k&ouml;nnen, w&uuml;rden die Leuchtb&auml;lle in falsche Positionen bringen, die dann trotzdem dazugez&auml;hlt werden w&uuml;rden. Daher wird ein Zeitlimit von jeweils 2 Sekunden gesetzt.</span><br /><br /><font color="#2a2a2a">Jedes Mal, wenn der Counter eine Zahl dazu addiert, muss die n&auml;chste Zahl innerhalb von 2 Sekunden dazu addiert werden oder anders gesagt, wenn die diagonalen-Positionen zu selten auftreten, wird der Counter zur&uuml;ckgesetzt und das Z&auml;hlen beginnt von neu. Trotzdem ist diese Methode sehr schnell. Die Erkennung von einem User dauert nur 2,5 Sekunden. Es w&auml;re nicht anzuzweifeln, dass diese Dauer sogar noch zu &uuml;bertreffen ist. Nach aktueller Forschung w&uuml;rde das aber die Genauigkeit und Pr&auml;zision verschlechtern.<br /><br />&#8203;Das Last Man System k&ouml;nnte neue M&ouml;glichkeiten f&uuml;r vollautomatische Games schaffen, die bisher weniger oder nur schwierig zu realisieren waren. Bekannte Games wie DTTF oder Lass dich nicht fangen k&ouml;nnen damit optimiert werden. Au&szlig;erdem werden Wired-Kosten gespart, denn in diesem System muss nicht f&uuml;r jede 1 mal 1 Bodenfl&auml;che etwas eingestellt werden.</font><br />&#8203;</div>
 
-<div><div class="ew-image ew-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0px;margin-right:0px;text-align:center">
+<div><div class="ew-image ew-image-border-none  iw-004">
 <a>
-<img src="uploads/1/2/4/2/124287907/last-man_orig.gif" alt="Bild" style="width:auto;max-width:100%" />
+<img class="iw-002" src="uploads/1/2/4/2/124287907/last-man_orig.gif" alt="Bild" />
 </a>
-<div style="display:block;font-size:90%">Last Man System im Einsatz</div>
+<div class="iw-001">Last Man System im Einsatz</div>
 </div></div>
 
 
 
-<div><div style="height: 20px; overflow: hidden; width: 100%;"></div>
-<hr class="styled-hr" style="width:100%;"></hr>
-<div style="height: 20px; overflow: hidden; width: 100%;"></div></div>
+<div><div class="iw-005"></div>
+<hr class="styled-hr iw-007"></hr>
+<div class="iw-005"></div></div>
 
 <h2 class="ew-content-title"><br /><font color="#24678d">&#8203;Einstellungs-Info</font></h2>
 
@@ -161,7 +162,7 @@
 
 
 
-<div class="ew-youtube" style="margin-bottom:10px;margin-top:10px;"><div class="ew-youtube-wrapper ew-youtube-size-xl ew-youtube-align-center">
+<div class="ew-youtube iw-016"><div class="ew-youtube-wrapper ew-youtube-size-xl ew-youtube-align-center">
 <div class="ew-youtube-container">
 
 <iframe src="https://www.youtube.com/embed/AfTu6MNeNO4?wmode=opaque" frameborder="0" allowfullscreen></iframe>
@@ -176,7 +177,7 @@
   <div class="site-footer__inner">
     <div class="site-footer__brand">
       <img src="uploads/1/2/4/2/124287907/editor/logo-ew.gif" alt="">
-      <span>easy<span style="color:var(--brand)">WIRED</span></span>
+      <span>easy<span class="iw-010">WIRED</span></span>
     </div>
     <div class="site-footer__meta">
       Ein privates Habbo-Fanprojekt von Surab Link.<br>
