@@ -150,10 +150,6 @@ a {
   text-decoration: none;
   transition: color var(--t-fast) ease;
 }
-a:hover {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
 
 button {
   font-family: inherit;
@@ -199,10 +195,7 @@ hr {
   letter-spacing: 0.5px;
   flex-shrink: 0;
 }
-.site-brand:hover {
-  color: var(--brand);
-  text-decoration: none;
-}
+
 .site-brand__logo {
   width: 44px;
   height: 44px;
