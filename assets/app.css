@@ -775,6 +775,57 @@ html[data-theme="dark"] .icon-button--theme .theme-icon-moon {
   }
 }
 
+/* ---------- Steckbrief-Kopfzeile: Bild – Überschrift – Bild -------------
+   Trifft ausschließlich die Überschriften-Zeile der Steckbriefe:
+   erste UND letzte Spalte enthalten ein Bild, dazwischen die h2-Überschrift.
+   Die Logo-Kopfzeile (Bild + Titel, ohne rechtes Bild) und normale
+   Inhalts-Tabellen bleiben unberührt. */
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2.5vw, 28px);
+}
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col {
+  width: auto !important;
+  min-width: 0;
+  padding: 0 !important;
+  flex: 0 1 auto;
+}
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:first-child,
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:last-child {
+  flex: 0 0 auto;
+}
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:first-child .ew-image,
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:last-child .ew-image {
+  text-align: center !important;
+  margin: 0 !important;
+}
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:first-child img,
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:last-child img {
+  height: clamp(48px, 8vw, 96px);
+  width: auto !important;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+.content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) h2.ew-content-title {
+  margin: 0;
+  text-align: center;
+}
+
+/* Schmale Screens: Überschrift volle Breite oben, Bilder darunter */
+@media (max-width: 600px) {
+  .content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) {
+    flex-wrap: wrap;
+  }
+  .content .ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title) > .ew-multicol-col:not(:first-child):not(:last-child) {
+    flex: 1 1 100%;
+    order: -1;
+  }
+}
+
 /* Legacy <font size="…"> tags: riesige Browser-Defaults (48px+) auf ein
    vernünftiges, relatives Maß bringen */
 .content font[size="7"] { font-size: 1.5em; }

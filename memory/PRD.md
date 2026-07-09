@@ -43,3 +43,12 @@ Legacy-Weebly-Markup: `<table class="ew-multicol-table">` mit `<td>`-Spalten (In
 - Optional: Grafik-Button "Was ist neu?" (PNG) durch echten HTML-Button ersetzen
 - Optional: Legacy-ew-*-Overrides in eigene CSS-Datei auslagern
 - Optional: data-testid für CTA-Buttons und Privacy-Banner-Close
+
+## Implementiert (09.07.2026) — Bugfix Steckbrief-Überschrift-Bilder
+- [x] Zentraler CSS-Fix in assets/app.css (von allen 117 wired-tool-*.html eingebunden, keine HTML-Änderungen)
+- [x] Selektor: `.ew-multicol-tr:has(> .ew-multicol-col:first-child .ew-image):has(> .ew-multicol-col:last-child .ew-image):has(h2.ew-content-title)` — trifft NUR die Steckbrief-Kopfzeile (Bild–Titel–Bild); Logo-Header (Bild+Titel, 2 Spalten) und Inhalts-Tabellen ausgeschlossen
+- [x] Flexbox: align-items:center, justify-content:center, gap:clamp(12px,2.5vw,28px), nowrap auf Desktop; Inline-td-Breiten (8.9%/53.6%/37.5%) neutralisiert (width:auto !important, flex 0 0 auto für Bildspalten)
+- [x] Bilder: height:clamp(48px,8vw,96px), width:auto, object-fit:contain — gleich groß, unverzerrt; center/left-Asymmetrie behoben (text-align:center !important)
+- [x] Mobile <600px: flex-wrap, Titelspalte flex 1 1 100% + order:-1 → Überschrift oben, Bilder symmetrisch darunter
+- [x] Verifiziert (Playwright-Metriken): 6 Steckbriefe Desktop (96px/96px, gap 28/28, midDiff 0) + Mobile 390px (60×48/60×48, kein Overflow); Phase-4-Check: andere ew-multicol-Tabellen unberührt
+- Hinweis: :has() ohne Fallback (User-Entscheidung: nur aktuelle Browser)
