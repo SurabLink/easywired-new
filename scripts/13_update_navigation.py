@@ -26,7 +26,7 @@ MENU = [
     {"title": "Start", "url": "index.html"},
     {
         "title": "News",
-        "url": "news.html",
+        "url": "#",
         "children": [
             {"title": "easyWIRED", "url": "easywired.html"},
             {"title": "Update Liste", "url": "update-liste.html"},
@@ -37,7 +37,7 @@ MENU = [
     },
     {
         "title": "Wireds Lernen",
-        "url": "wireds-lernen.html",
+        "url": "#",
         "children": [
             {"title": "Wired-Artikel", "url": "wired-artikel.html"},
             {"title": "Wired-Tool", "url": "wired-tool.html"},
@@ -47,7 +47,7 @@ MENU = [
     },
     {
         "title": "Wired Szene",
-        "url": "wired-szene.html",
+        "url": "#",
         "children": [
             {"title": "Wired Career", "url": "wired-career.html"},
             {"title": "Wired Räume", "url": "wired-raumlume.html"},
@@ -55,7 +55,7 @@ MENU = [
     },
     {
         "title": "Tipps & Tricks",
-        "url": "tipps--tricks.html",
+        "url": "#",
         "children": [
             {"title": "Commands", "url": "commands.html"},
             {"title": "Bodenlayout Editor", "url": "bodenlayout-editor.html"},
